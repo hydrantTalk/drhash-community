@@ -383,58 +383,91 @@ export default function Founder() {
       </div>
 
       <div className="relative z-10 max-w-4xl mx-auto">
-        {/* Name */}
-        <h2 className="founder-name text-[clamp(2.5rem,6vw,5rem)] font-black leading-[0.95] tracking-tighter mb-2">
-          {m.founder?.name || 'Wesley'}
-        </h2>
+        {/* ===== Gold Gilded Frame ===== */}
+        <div className="gold-frame gold-glow-pulse p-8 md:p-12 lg:p-14">
+          {/* Gold corner ornaments */}
+          <div className="absolute top-3 left-3 w-8 h-8 pointer-events-none z-[2]">
+            <div className="absolute top-0 left-0 w-full h-[2px] bg-gradient-to-r from-[#FFD700] to-transparent" />
+            <div className="absolute top-0 left-0 h-full w-[2px] bg-gradient-to-b from-[#FFD700] to-transparent" />
+            <div className="absolute top-[3px] left-[3px] w-2 h-2 rounded-full bg-[#FFD700]/30" />
+          </div>
+          <div className="absolute top-3 right-3 w-8 h-8 pointer-events-none z-[2]">
+            <div className="absolute top-0 right-0 w-full h-[2px] bg-gradient-to-l from-[#FFD700] to-transparent" />
+            <div className="absolute top-0 right-0 h-full w-[2px] bg-gradient-to-b from-[#FFD700] to-transparent" />
+            <div className="absolute top-[3px] right-[3px] w-2 h-2 rounded-full bg-[#FFD700]/30" />
+          </div>
+          <div className="absolute bottom-3 left-3 w-8 h-8 pointer-events-none z-[2]">
+            <div className="absolute bottom-0 left-0 w-full h-[2px] bg-gradient-to-r from-[#FFD700] to-transparent" />
+            <div className="absolute bottom-0 left-0 h-full w-[2px] bg-gradient-to-t from-[#FFD700] to-transparent" />
+            <div className="absolute bottom-[3px] left-[3px] w-2 h-2 rounded-full bg-[#FFD700]/30" />
+          </div>
+          <div className="absolute bottom-3 right-3 w-8 h-8 pointer-events-none z-[2]">
+            <div className="absolute bottom-0 right-0 w-full h-[2px] bg-gradient-to-l from-[#FFD700] to-transparent" />
+            <div className="absolute bottom-0 right-0 h-full w-[2px] bg-gradient-to-t from-[#FFD700] to-transparent" />
+            <div className="absolute bottom-[3px] right-[3px] w-2 h-2 rounded-full bg-[#FFD700]/30" />
+          </div>
 
-        {/* Role badge */}
-        <div className="founder-role inline-flex items-center gap-2 px-3 py-1 rounded-full border border-purple-500/20 bg-purple-500/5 mb-6">
-          <span className="text-xs tracking-widest uppercase text-purple-300/70">{m.founder?.role}</span>
+          {/* Gold inner border line */}
+          <div className="absolute inset-[6px] rounded-[1rem] border border-[#DAA520]/10 pointer-events-none z-[2]" />
+
+          {/* Top gold decorative line */}
+          <div className="absolute top-0 left-[15%] right-[15%] h-[1px] bg-gradient-to-r from-transparent via-[#FFD700]/30 to-transparent z-[2]" />
+          <div className="absolute bottom-0 left-[15%] right-[15%] h-[1px] bg-gradient-to-r from-transparent via-[#FFD700]/30 to-transparent z-[2]" />
+
+          {/* Name with gold shimmer */}
+          <h2 className="founder-name text-[clamp(2.5rem,6vw,5rem)] font-black leading-[0.95] tracking-tighter mb-2 gold-shimmer-text">
+            {m.founder?.name || 'Wesley'}
+          </h2>
+
+          {/* Role badge with gold accent */}
+          <div className="founder-role inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-[#DAA520]/30 bg-[#DAA520]/5 mb-6">
+            <span className="w-1.5 h-1.5 rounded-full bg-[#FFD700]/50 animate-pulse" />
+            <span className="text-xs tracking-widest uppercase text-[#DAA520]/80">{m.founder?.role}</span>
+          </div>
+
+          {/* Typewriter description */}
+          <p className={`text-sm md:text-base text-white/40 max-w-xl leading-relaxed mb-8 min-h-[3rem] ${showCursor ? 'typewriter-cursor' : ''}`}>
+            {typed}
+          </p>
+
+          {/* Tags with gold borders */}
+          <div className="flex flex-wrap gap-2.5 mb-10">
+            {tags.map((tag, i) => (
+              <span
+                key={i}
+                className="tag px-4 py-2 rounded-full border border-[#DAA520]/15 text-xs md:text-sm text-[#DAA520]/60 bg-[#DAA520]/[0.03] backdrop-blur-sm opacity-0 hover:border-[#FFD700]/30 hover:text-[#FFD700]/80 transition-all duration-300"
+              >
+                {tag}
+              </span>
+            ))}
+          </div>
+
+          {/* Achievement timeline with chip icons */}
+          <div className="flex items-center gap-0 mb-10 max-w-sm">
+            {achievements.map((a, i) => (
+              <div key={i} className="timeline-dot flex flex-col items-center flex-1 relative opacity-0">
+                {i < achievements.length - 1 && (
+                  <div className="absolute top-5 left-1/2 w-full h-[1px] bg-gradient-to-r from-[#DAA520]/20 to-[#DAA520]/5 pointer-events-none" />
+                )}
+                <TimelineChip color={a.color} label={a.label} />
+                <span className="text-[10px] text-white/25 tracking-wider font-mono mt-1.5">{a.year}</span>
+              </div>
+            ))}
+          </div>
+
+          {/* Social - Wesley Twitter */}
+          <a
+            href="https://x.com/CryptoApprenti1"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 text-sm text-[#DAA520]/40 hover:text-[#FFD700]/70 transition-colors group"
+          >
+            <svg className="w-4 h-4 group-hover:scale-110 transition-transform" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+            </svg>
+            {m.founder?.social}
+          </a>
         </div>
-
-        {/* Typewriter description */}
-        <p className={`text-sm md:text-base text-white/40 max-w-xl leading-relaxed mb-8 min-h-[3rem] ${showCursor ? 'typewriter-cursor' : ''}`}>
-          {typed}
-        </p>
-
-        {/* Tags */}
-        <div className="flex flex-wrap gap-2.5 mb-10">
-          {tags.map((tag, i) => (
-            <span
-              key={i}
-              className="tag px-4 py-2 rounded-full border border-white/8 text-xs md:text-sm text-white/50 bg-white/[0.02] backdrop-blur-sm opacity-0"
-            >
-              {tag}
-            </span>
-          ))}
-        </div>
-
-        {/* Achievement timeline with chip icons */}
-        <div className="flex items-center gap-0 mb-10 max-w-sm">
-          {achievements.map((a, i) => (
-            <div key={i} className="timeline-dot flex flex-col items-center flex-1 relative opacity-0">
-              {i < achievements.length - 1 && (
-                <div className="absolute top-5 left-1/2 w-full h-[1px] bg-gradient-to-r from-purple-500/20 to-purple-500/5 pointer-events-none" />
-              )}
-              <TimelineChip color={a.color} label={a.label} />
-              <span className="text-[10px] text-white/25 tracking-wider font-mono mt-1.5">{a.year}</span>
-            </div>
-          ))}
-        </div>
-
-        {/* Social - Wesley Twitter */}
-        <a
-          href="https://x.com/CryptoApprenti1"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-flex items-center gap-2 text-sm text-white/25 hover:text-white/50 transition-colors group"
-        >
-          <svg className="w-4 h-4 group-hover:scale-110 transition-transform" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
-          </svg>
-          {m.founder?.social}
-        </a>
       </div>
     </section>
   );

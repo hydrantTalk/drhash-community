@@ -18,7 +18,7 @@ const map: Record<Locale, Messages> = { zh, en };
 const Ctx = createContext<LangCtx | null>(null);
 
 export function LangProvider({ children }: { children: ReactNode }) {
-  const [locale, setLocale] = useState<Locale>('zh');
+  const [locale, setLocale] = useState<Locale>('en');
   const toggle = useCallback(() => setLocale(p => (p === 'zh' ? 'en' : 'zh')), []);
   return (
     <Ctx.Provider value={{ locale, m: map[locale], toggle }}>
