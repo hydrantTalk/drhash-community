@@ -71,7 +71,7 @@ export default function Hero() {
         className="absolute inset-0 w-full h-full object-cover opacity-30 pointer-events-none hidden sm:block"
         aria-hidden="true"
       >
-        <source src={`${process.env.NODE_ENV === 'production' ? '/drhash-community' : ''}/wesley-avatar.mp4`} type="video/mp4" />
+        <source src={`/wesley-avatar.mp4`} type="video/mp4" />
       </video>
 
       {/* Video background - portrait (mobile) */}
@@ -83,7 +83,7 @@ export default function Hero() {
         className="absolute inset-0 w-full h-full object-cover opacity-30 pointer-events-none block sm:hidden"
         aria-hidden="true"
       >
-        <source src={`${process.env.NODE_ENV === 'production' ? '/drhash-community' : ''}/wesley-avatar-portrait.mp4`} type="video/mp4" />
+        <source src={`/wesley-avatar-portrait.mp4`} type="video/mp4" />
       </video>
 
       {/* Dark gradient overlays */}

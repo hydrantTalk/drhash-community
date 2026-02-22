@@ -26,7 +26,7 @@ const marqueeSymbols = '♠ ♥ ♦ ♣ ₿ $ ♠ ♥ ♦ ♣ ₿ $ ♠ ♥ ♦ 
 export default function Team() {
   const { m } = useLang();
   const sectionRef = useRef<HTMLDivElement>(null);
-  const basePath = process.env.NODE_ENV === 'production' ? '/drhash-community' : '';
+  const basePath = '';
 
   const members: { name: string; handle: string; url: string; color: string }[] = m.team?.members || [];
 
