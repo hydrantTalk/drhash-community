@@ -120,6 +120,13 @@ export default function CTA() {
         <div className="flex items-center justify-center gap-2 mb-3">
           <span className="text-sm font-black tracking-tight text-white/50">DR.<span className="text-grad">HASH</span></span>
         </div>
+        <a href="mailto:support@drhash.io" className="inline-flex items-center gap-1.5 text-xs text-white/25 hover:text-white/50 transition-colors mb-3">
+          <svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+            <rect x="2" y="4" width="20" height="16" rx="2" />
+            <path d="M22 4L12 13L2 4" />
+          </svg>
+          support@drhash.io
+        </a>
         <p className="text-[10px] text-white/15 tracking-widest">{m.footer}</p>
       </div>
     </section>

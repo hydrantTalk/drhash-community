@@ -25,7 +25,7 @@ export default function Navbar() {
       }`}
     >
       {/* Logo + X icon */}
-      <a href="https://x.com/CryptoApprenti1" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 group">
+      <a href="https://x.com/DrHashClub" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 group">
         <span className="text-base font-black tracking-tight text-white/80 group-hover:text-white transition-colors">
           DR.<span className="text-grad">HASH</span>
         </span>
