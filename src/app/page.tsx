@@ -12,7 +12,7 @@ import Stats from '@/components/Stats';
 import Services from '@/components/Services';
 import Membership from '@/components/Membership';
 import Founder from '@/components/Founder';
-import Media from '@/components/Media';
+import Team from '@/components/Media';
 import CTA from '@/components/CTA';
 
 gsap.registerPlugin(ScrollTrigger);
@@ -55,7 +55,7 @@ function App() {
         <div className="section-divider" />
         <Founder />
         <div className="section-divider" />
-        <Media />
+        <Team />
         <div className="section-divider" />
         <CTA />
       </main>

@@ -320,6 +320,12 @@ body {
   background: linear-gradient(135deg, #050510 0%, #0a0a2a 30%, #150a30 60%, #0a0a1a 100%);
 }
 
+/* ===== SPIN ANIMATION ===== */
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
 /* ===== UTILITY ===== */
 .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
 .hide-scrollbar::-webkit-scrollbar { display: none; }

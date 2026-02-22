@@ -12,9 +12,68 @@ interface FloatingSymbol {
   opacity: number;
   size: number;
   type: string;
+  bullish?: boolean; // for candle/chart
 }
 
-const SYMBOL_TYPES = ['₿', '♠', '♥', '♦', '♣', '#', '↗', '↘'];
+const SYMBOL_TYPES = ['₿', '♠', '♥', '♦', '♣', '#', '↗', '↘', '$', '€'];
+
+// Draw a poker chip
+function drawChip(
+  ctx: CanvasRenderingContext2D,
+  x: number,
+  y: number,
+  size: number,
+  opacity: number,
+  rotation: number
+) {
+  ctx.save();
+  ctx.translate(x, y);
+  ctx.rotate(rotation);
+  ctx.globalAlpha = opacity;
+
+  const r = size * 0.45;
+
+  // Outer ring
+  ctx.strokeStyle = 'rgba(139, 92, 246, 0.8)';
+  ctx.lineWidth = 2;
+  ctx.beginPath();
+  ctx.arc(0, 0, r, 0, Math.PI * 2);
+  ctx.stroke();
+
+  // Inner circle
+  ctx.strokeStyle = 'rgba(139, 92, 246, 0.5)';
+  ctx.lineWidth = 1;
+  ctx.beginPath();
+  ctx.arc(0, 0, r * 0.6, 0, Math.PI * 2);
+  ctx.stroke();
+
+  // Edge notches (8)
+  for (let i = 0; i < 8; i++) {
+    const angle = (i / 8) * Math.PI * 2;
+    const nx = Math.cos(angle) * r;
+    const ny = Math.sin(angle) * r;
+    const nx2 = Math.cos(angle) * (r + 4);
+    const ny2 = Math.sin(angle) * (r + 4);
+    ctx.strokeStyle = 'rgba(255, 255, 255, 0.4)';
+    ctx.lineWidth = 2;
+    ctx.beginPath();
+    ctx.moveTo(nx, ny);
+    ctx.lineTo(nx2, ny2);
+    ctx.stroke();
+  }
+
+  // Center cross
+  ctx.strokeStyle = 'rgba(255, 255, 255, 0.3)';
+  ctx.lineWidth = 0.8;
+  ctx.beginPath();
+  ctx.moveTo(-r * 0.3, 0);
+  ctx.lineTo(r * 0.3, 0);
+  ctx.moveTo(0, -r * 0.3);
+  ctx.lineTo(0, r * 0.3);
+  ctx.stroke();
+
+  ctx.restore();
+}
 
 // Draw a mini candlestick
 function drawCandlestick(
@@ -50,16 +109,13 @@ function drawCandlestick(
   ctx.lineWidth = 1;
   ctx.beginPath();
   ctx.rect(-bodyW / 2, -bodyH / 2, bodyW, bodyH);
-  if (isBull) {
-    ctx.stroke();
-  } else {
-    ctx.fill();
-  }
+  if (isBull) ctx.stroke();
+  else ctx.fill();
 
   ctx.restore();
 }
 
-// Draw a mini K-line chart (3-5 candles)
+// Draw a mini K-line chart (5 candles)
 function drawMiniChart(
   ctx: CanvasRenderingContext2D,
   x: number,
@@ -70,7 +126,7 @@ function drawMiniChart(
 ) {
   ctx.save();
   ctx.translate(x, y);
-  ctx.rotate(rotation * 0.3); // Less rotation for chart
+  ctx.rotate(rotation * 0.3);
   ctx.globalAlpha = opacity;
 
   const candles = [0.6, 0.8, 0.4, 0.9, 0.7];
@@ -85,7 +141,6 @@ function drawMiniChart(
     const bodyW = gap * 0.5;
     const color = bulls[i] ? 'rgba(34, 197, 94, 1)' : 'rgba(239, 68, 68, 1)';
 
-    // Wick
     ctx.strokeStyle = color;
     ctx.lineWidth = 0.5;
     ctx.beginPath();
@@ -93,7 +148,6 @@ function drawMiniChart(
     ctx.lineTo(cx, h / 2);
     ctx.stroke();
 
-    // Body
     ctx.fillStyle = bulls[i] ? 'transparent' : color;
     ctx.strokeStyle = color;
     ctx.beginPath();
@@ -101,6 +155,54 @@ function drawMiniChart(
     if (bulls[i]) ctx.stroke();
     else ctx.fill();
   }
+
+  ctx.restore();
+}
+
+// Draw a poker card back
+function drawCardBack(
+  ctx: CanvasRenderingContext2D,
+  x: number,
+  y: number,
+  size: number,
+  opacity: number,
+  rotation: number
+) {
+  ctx.save();
+  ctx.translate(x, y);
+  ctx.rotate(rotation);
+  ctx.globalAlpha = opacity;
+
+  const w = size * 0.5;
+  const h = size * 0.7;
+
+  // Card outline
+  ctx.strokeStyle = 'rgba(139, 92, 246, 0.7)';
+  ctx.lineWidth = 1;
+  const r = 3;
+  ctx.beginPath();
+  ctx.moveTo(-w / 2 + r, -h / 2);
+  ctx.lineTo(w / 2 - r, -h / 2);
+  ctx.arcTo(w / 2, -h / 2, w / 2, -h / 2 + r, r);
+  ctx.lineTo(w / 2, h / 2 - r);
+  ctx.arcTo(w / 2, h / 2, w / 2 - r, h / 2, r);
+  ctx.lineTo(-w / 2 + r, h / 2);
+  ctx.arcTo(-w / 2, h / 2, -w / 2, h / 2 - r, r);
+  ctx.lineTo(-w / 2, -h / 2 + r);
+  ctx.arcTo(-w / 2, -h / 2, -w / 2 + r, -h / 2, r);
+  ctx.closePath();
+  ctx.stroke();
+
+  // Inner diamond pattern
+  ctx.strokeStyle = 'rgba(139, 92, 246, 0.4)';
+  ctx.lineWidth = 0.5;
+  ctx.beginPath();
+  ctx.moveTo(0, -h * 0.3);
+  ctx.lineTo(w * 0.25, 0);
+  ctx.lineTo(0, h * 0.3);
+  ctx.lineTo(-w * 0.25, 0);
+  ctx.closePath();
+  ctx.stroke();
 
   ctx.restore();
 }
@@ -126,26 +228,26 @@ export default function CryptoCanvas() {
 
     const init = () => {
       const isMobile = window.innerWidth < 768;
-      const count = isMobile ? 18 : 40;
+      const count = isMobile ? 25 : 55; // Increased density
       const symbols: FloatingSymbol[] = [];
 
+      // Extended types including new custom draw types
+      const allTypes = [...SYMBOL_TYPES, 'candle', 'chart', 'chip', 'cardback'];
+
       for (let i = 0; i < count; i++) {
-        const typeIndex = i % (SYMBOL_TYPES.length + 2); // +2 for candlestick & chart
-        let type: string;
-        if (typeIndex === SYMBOL_TYPES.length) type = 'candle';
-        else if (typeIndex === SYMBOL_TYPES.length + 1) type = 'chart';
-        else type = SYMBOL_TYPES[typeIndex];
+        const type = allTypes[i % allTypes.length];
 
         symbols.push({
           x: Math.random() * canvas.width,
           y: Math.random() * canvas.height,
-          vx: (Math.random() - 0.5) * 0.15,
-          vy: (Math.random() - 0.5) * 0.15,
+          vx: (Math.random() - 0.5) * 0.18,
+          vy: (Math.random() - 0.5) * 0.18,
           rotation: Math.random() * Math.PI * 2,
           rotationSpeed: (Math.random() - 0.5) * 0.003,
-          opacity: 0.03 + Math.random() * 0.05,
-          size: isMobile ? 14 + Math.random() * 16 : 18 + Math.random() * 24,
+          opacity: 0.03 + Math.random() * 0.06,
+          size: isMobile ? 14 + Math.random() * 18 : 18 + Math.random() * 28,
           type,
+          bullish: Math.random() > 0.4,
         });
       }
 
@@ -174,17 +276,22 @@ export default function CryptoCanvas() {
         s.rotation += s.rotationSpeed;
 
         // Wrap around
-        if (s.x < -50) s.x = canvas.width + 50;
-        if (s.x > canvas.width + 50) s.x = -50;
-        if (s.y < -50) s.y = canvas.height + 50;
-        if (s.y > canvas.height + 50) s.y = -50;
+        if (s.x < -60) s.x = canvas.width + 60;
+        if (s.x > canvas.width + 60) s.x = -60;
+        if (s.y < -60) s.y = canvas.height + 60;
+        if (s.y > canvas.height + 60) s.y = -60;
 
-        // Draw
+        // Draw based on type
         if (s.type === 'candle') {
-          drawCandlestick(ctx, s.x, s.y, s.size, s.opacity, s.rotation, Math.random() > 0.5);
+          drawCandlestick(ctx, s.x, s.y, s.size, s.opacity, s.rotation, s.bullish ?? true);
         } else if (s.type === 'chart') {
           drawMiniChart(ctx, s.x, s.y, s.size * 1.5, s.opacity, s.rotation);
+        } else if (s.type === 'chip') {
+          drawChip(ctx, s.x, s.y, s.size, s.opacity, s.rotation);
+        } else if (s.type === 'cardback') {
+          drawCardBack(ctx, s.x, s.y, s.size * 1.2, s.opacity, s.rotation);
         } else {
+          // Text symbols
           ctx.save();
           ctx.translate(s.x, s.y);
           ctx.rotate(s.rotation);
@@ -193,20 +300,13 @@ export default function CryptoCanvas() {
           ctx.textAlign = 'center';
           ctx.textBaseline = 'middle';
 
-          // Color based on type
-          if (s.type === '₿') {
-            ctx.fillStyle = '#F7931A'; // Bitcoin orange
-          } else if (s.type === '♥' || s.type === '♦') {
-            ctx.fillStyle = '#EF4444'; // Red for hearts/diamonds
-          } else if (s.type === '♠' || s.type === '♣') {
-            ctx.fillStyle = '#ffffff';
-          } else if (s.type === '↗') {
-            ctx.fillStyle = '#22C55E'; // Green for up arrow
-          } else if (s.type === '↘') {
-            ctx.fillStyle = '#EF4444'; // Red for down arrow
-          } else {
-            ctx.fillStyle = '#8B5CF6'; // Purple for hash
-          }
+          if (s.type === '₿') ctx.fillStyle = '#F7931A';
+          else if (s.type === '♥' || s.type === '♦') ctx.fillStyle = '#EF4444';
+          else if (s.type === '♠' || s.type === '♣') ctx.fillStyle = '#ffffff';
+          else if (s.type === '↗') ctx.fillStyle = '#22C55E';
+          else if (s.type === '↘') ctx.fillStyle = '#EF4444';
+          else if (s.type === '$' || s.type === '€') ctx.fillStyle = '#22C55E';
+          else ctx.fillStyle = '#8B5CF6';
 
           ctx.fillText(s.type, 0, 0);
           ctx.restore();

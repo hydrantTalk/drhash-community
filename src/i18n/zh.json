@@ -1,8 +1,7 @@
 {
   "hero": {
-    "badge": "Web3 加密社区",
-    "sub": "Est. 2021 · 22,000+ Traders · Web3",
-    "desc": "投研驱动，服务至上。与 Binance、OKX、Bitget 深度合作，为交易者提供最前沿的市场洞察。"
+    "badge": "Est. 2021 · Web3",
+    "tagline": "投研驱动 · 服务至上"
   },
   "stats": {
     "title": "社区数据",
@@ -21,22 +20,22 @@
     "title": "我们做什么",
     "items": [
       {
-        "icon": "◎",
+        "icon": "♠",
         "title": "Alpha 猎手",
         "desc": "融资事件 · 赛道趋势 · 数据挖掘，找出最优质的早期项目。"
       },
       {
-        "icon": "△",
+        "icon": "📈",
         "title": "趋势交易",
         "desc": "技术指标 · 市场趋势 · 实时策略，为社区用户提供交易信号。"
       },
       {
-        "icon": "◇",
+        "icon": "♦",
         "title": "深度投研",
         "desc": "项目调研 · 操作拆解 · 研报产出，搭建用户与项目间的桥梁。"
       },
       {
-        "icon": "□",
+        "icon": "🎰",
         "title": "社区服务",
         "desc": "品牌曝光 · 内容营销 · 活动策划，全方位为项目赋能。"
       }
@@ -47,6 +46,7 @@
     "tiers": [
       {
         "name": "基础",
+        "suit": "♣",
         "price": "FREE",
         "features": [
           "查看社交媒体发布内容",
@@ -57,6 +57,7 @@
       },
       {
         "name": "核心群",
+        "suit": "♦",
         "price": "FREE",
         "features": [
           "Dr.Hash 邀请码注册交易所",
@@ -69,6 +70,7 @@
       },
       {
         "name": "VIP",
+        "suit": "♠",
         "price": "付费",
         "features": [
           "实时分享所有仓位操作",
@@ -86,23 +88,35 @@
     "role": "Founder & CIO",
     "desc": "知名扑克牌手与加密货币投资者，洛杉矶家族办公室首席投资官，独立管理 $300M 基金。",
     "tags": ["扑克冠军", "$300M 基金", "OKX Top 10"],
-    "social": "@CryptoApprentil"
+    "social": "@CryptoApprenti1"
   },
-  "media": {
-    "title": "关注我们",
-    "platforms": [
-      { "name": "Discord", "handle": "Dr.Hash Club", "url": "https://discord.gg/drhash" },
-      { "name": "Telegram", "handle": "Dr.Hash Research", "url": "https://t.me/drhash" },
-      { "name": "Bilibili", "handle": "哈希社区", "url": "https://bilibili.com" },
-      { "name": "YouTube", "handle": "Wesley Poker", "url": "https://youtube.com" },
-      { "name": "X", "handle": "@DrHashClub", "url": "https://x.com/DrhashClub" }
+  "team": {
+    "title": "核心成员",
+    "members": [
+      {
+        "name": "Dr.Hash",
+        "handle": "@DrHashClub",
+        "url": "https://x.com/DrHashClub",
+        "color": "#8B5CF6"
+      },
+      {
+        "name": "Peas",
+        "handle": "@0xpeas",
+        "url": "https://x.com/0xpeas",
+        "color": "#EC4899"
+      },
+      {
+        "name": "Wesley",
+        "handle": "@CryptoApprenti1",
+        "url": "https://x.com/CryptoApprenti1",
+        "color": "#3B82F6"
+      }
     ]
   },
   "cta": {
     "title": "开始你的加密之旅",
-    "desc": "X 私信 @DrhashClub 获取链接",
-    "btn": "立即加入",
-    "email": "peas@blockinfinity.fund"
+    "desc": "关注我们的 X (Twitter) 获取最新动态",
+    "btn": "加入 Dr.Hash"
   },
   "nav": {
     "lang": "EN"

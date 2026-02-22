@@ -1,8 +1,7 @@
 {
   "hero": {
-    "badge": "Web3 Crypto Community",
-    "sub": "Est. 2021 · 22,000+ Traders · Web3",
-    "desc": "Research-driven, service-first. Deep partnerships with Binance, OKX & Bitget — delivering cutting-edge market insights for traders."
+    "badge": "Est. 2021 · Web3",
+    "tagline": "Research-Driven · Service-First"
   },
   "stats": {
     "title": "Community Data",
@@ -21,22 +20,22 @@
     "title": "What We Do",
     "items": [
       {
-        "icon": "◎",
+        "icon": "♠",
         "title": "Alpha Hunter",
         "desc": "Funding events · Track trends · Data mining — finding premium early-stage projects."
       },
       {
-        "icon": "△",
+        "icon": "📈",
         "title": "Trend Trading",
         "desc": "Technical indicators · Market trends · Live strategies for community traders."
       },
       {
-        "icon": "◇",
+        "icon": "♦",
         "title": "Deep Research",
         "desc": "Project analysis · Operational breakdowns · Reports bridging users and projects."
       },
       {
-        "icon": "□",
+        "icon": "🎰",
         "title": "Community Ops",
         "desc": "Brand exposure · Content marketing · Event planning — full-stack project support."
       }
@@ -47,6 +46,7 @@
     "tiers": [
       {
         "name": "Basic",
+        "suit": "♣",
         "price": "FREE",
         "features": [
           "Social media content access",
@@ -57,6 +57,7 @@
       },
       {
         "name": "Core",
+        "suit": "♦",
         "price": "FREE",
         "features": [
           "Register exchanges via Dr.Hash referral",
@@ -69,6 +70,7 @@
       },
       {
         "name": "VIP",
+        "suit": "♠",
         "price": "PAID",
         "features": [
           "Real-time position sharing",
@@ -86,23 +88,35 @@
     "role": "Founder & CIO",
     "desc": "Renowned poker player and crypto investor. CIO of an LA family office, independently managing a $300M fund.",
     "tags": ["Poker Champion", "$300M Fund", "OKX Top 10"],
-    "social": "@CryptoApprentil"
+    "social": "@CryptoApprenti1"
   },
-  "media": {
-    "title": "Follow Us",
-    "platforms": [
-      { "name": "Discord", "handle": "Dr.Hash Club", "url": "https://discord.gg/drhash" },
-      { "name": "Telegram", "handle": "Dr.Hash Research", "url": "https://t.me/drhash" },
-      { "name": "Bilibili", "handle": "DrHashResearch", "url": "https://bilibili.com" },
-      { "name": "YouTube", "handle": "Wesley Poker", "url": "https://youtube.com" },
-      { "name": "X", "handle": "@DrHashClub", "url": "https://x.com/DrhashClub" }
+  "team": {
+    "title": "Core Team",
+    "members": [
+      {
+        "name": "Dr.Hash",
+        "handle": "@DrHashClub",
+        "url": "https://x.com/DrHashClub",
+        "color": "#8B5CF6"
+      },
+      {
+        "name": "Peas",
+        "handle": "@0xpeas",
+        "url": "https://x.com/0xpeas",
+        "color": "#EC4899"
+      },
+      {
+        "name": "Wesley",
+        "handle": "@CryptoApprenti1",
+        "url": "https://x.com/CryptoApprenti1",
+        "color": "#3B82F6"
+      }
     ]
   },
   "cta": {
     "title": "Start Your Crypto Journey",
-    "desc": "DM @DrhashClub on X for links",
-    "btn": "Join Now",
-    "email": "peas@blockinfinity.fund"
+    "desc": "Follow us on X (Twitter) for the latest updates",
+    "btn": "Join Dr.Hash"
   },
   "nav": {
     "lang": "中文"
