@@ -8,6 +8,8 @@
   --purple: #8B5CF6;
   --pink: #EC4899;
   --blue: #3B82F6;
+  --green: #22C55E;
+  --btc-orange: #F7931A;
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -98,6 +100,25 @@ body {
   z-index: 2;
 }
 
+/* ===== GRID BACKGROUND ===== */
+.grid-bg {
+  position: relative;
+}
+
+.grid-bg::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(139, 92, 246, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(139, 92, 246, 0.03) 1px, transparent 1px);
+  background-size: 60px 60px;
+  pointer-events: none;
+  z-index: 0;
+  mask-image: radial-gradient(ellipse 80% 70% at 50% 50%, black 40%, transparent 100%);
+  -webkit-mask-image: radial-gradient(ellipse 80% 70% at 50% 50%, black 40%, transparent 100%);
+}
+
 /* ===== MARQUEE ===== */
 .marquee-track {
   display: flex;
@@ -160,11 +181,30 @@ body {
   border-radius: 1rem;
   backdrop-filter: blur(20px);
   transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  position: relative;
+  overflow: hidden;
+}
+
+.glow-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(139, 92, 246, 0.2), transparent);
+  opacity: 0;
+  transition: opacity 0.5s;
 }
 
 .glow-card:hover {
   border-color: rgba(139, 92, 246, 0.3);
-  box-shadow: 0 0 40px rgba(139, 92, 246, 0.1);
+  box-shadow: 0 0 40px rgba(139, 92, 246, 0.1), inset 0 1px 0 rgba(139, 92, 246, 0.1);
+  transform: translateY(-2px);
+}
+
+.glow-card:hover::before {
+  opacity: 1;
 }
 
 .glow-card-vip {
@@ -172,9 +212,57 @@ body {
   border: 1px solid rgba(139, 92, 246, 0.3);
   border-radius: 1rem;
   backdrop-filter: blur(20px);
-  animation: vip-pulse 3s ease-in-out infinite;
+  position: relative;
+  overflow: hidden;
 }
 
+/* ===== ANIMATED BORDER (VIP) ===== */
+.animated-border {
+  position: relative;
+  overflow: hidden;
+}
+
+.animated-border::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  border-radius: inherit;
+  background: conic-gradient(from var(--angle, 0deg), transparent 30%, var(--purple) 50%, var(--pink) 55%, transparent 70%);
+  z-index: -1;
+  animation: rotate-border 4s linear infinite;
+}
+
+.animated-border::after {
+  content: '';
+  position: absolute;
+  inset: 1px;
+  border-radius: inherit;
+  background: linear-gradient(180deg, rgba(139, 92, 246, 0.15), rgba(12, 12, 18, 0.95));
+  z-index: -1;
+}
+
+@keyframes rotate-border {
+  0%   { --angle: 0deg; }
+  100% { --angle: 360deg; }
+}
+
+@property --angle {
+  syntax: '<angle>';
+  initial-value: 0deg;
+  inherits: false;
+}
+
+/* ===== GLOW PULSE (Button) ===== */
+.glow-pulse {
+  animation: btn-glow-pulse 2.5s ease-in-out infinite;
+}
+
+@keyframes btn-glow-pulse {
+  0%, 100% { box-shadow: 0 0 20px rgba(139, 92, 246, 0.3), 0 0 40px rgba(139, 92, 246, 0.1); }
+  50%      { box-shadow: 0 0 40px rgba(139, 92, 246, 0.5), 0 0 80px rgba(139, 92, 246, 0.2); }
+}
+
+/* VIP card pulse */
 @keyframes vip-pulse {
   0%, 100% { box-shadow: 0 0 20px rgba(139, 92, 246, 0.15); }
   50%      { box-shadow: 0 0 50px rgba(139, 92, 246, 0.3); }
@@ -202,6 +290,34 @@ body {
   pointer-events: none;
   z-index: 9999;
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* ===== DECORATIVE LINE ===== */
+.deco-line {
+  position: relative;
+}
+
+.deco-line::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 0;
+  width: 60px;
+  height: 2px;
+  background: linear-gradient(90deg, var(--purple), transparent);
+}
+
+/* ===== SECTION DIVIDER ===== */
+.section-divider {
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(139, 92, 246, 0.15), transparent);
+  margin: 0 auto;
+}
+
+/* ===== VIDEO FALLBACK ===== */
+.video-fallback-bg {
+  background: linear-gradient(135deg, #050510 0%, #0a0a2a 30%, #150a30 60%, #0a0a1a 100%);
 }
 
 /* ===== UTILITY ===== */

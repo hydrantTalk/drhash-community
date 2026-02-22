@@ -7,6 +7,9 @@ import { useLang } from '@/context/LanguageContext';
 
 gsap.registerPlugin(ScrollTrigger);
 
+const suitSymbols = ['♠', '♣', '♦'];
+const suitColors = ['rgba(255,255,255,0.04)', 'rgba(255,255,255,0.04)', 'rgba(239,68,68,0.06)'];
+
 export default function Membership() {
   const { m } = useLang();
   const sectionRef = useRef<HTMLDivElement>(null);
@@ -16,7 +19,6 @@ export default function Membership() {
     const section = sectionRef.current;
     if (!section) return;
 
-    // Title
     const title = section.querySelector('.mem-title');
     if (title) {
       gsap.fromTo(title, { opacity: 0, y: 20 }, {
@@ -25,7 +27,6 @@ export default function Membership() {
       });
     }
 
-    // Cards fly in with 3D
     cardsRef.current.forEach((card, i) => {
       if (!card) return;
       gsap.fromTo(card,
@@ -44,7 +45,7 @@ export default function Membership() {
   const tiers: { name: string; price: string; features: string[] }[] = m.membership?.tiers || [];
 
   return (
-    <section ref={sectionRef} className="py-24 md:py-32 px-6 sm:px-8 perspective-container">
+    <section ref={sectionRef} className="py-24 md:py-32 px-6 sm:px-8 perspective-container relative">
       <div className="max-w-5xl mx-auto">
         {/* Title */}
         <div className="mem-title text-center mb-14 md:mb-16">
@@ -60,9 +61,16 @@ export default function Membership() {
               <div
                 key={i}
                 ref={(el: HTMLElement | null) => { cardsRef.current[i] = el; }}
-                className={`${isVip ? 'glow-card-vip' : 'glow-card'} p-6 md:p-8 flex flex-col will-change-transform opacity-0`}
-                style={{ transformStyle: 'preserve-3d' }}
+                className={`${isVip ? 'animated-border' : 'glow-card'} p-6 md:p-8 flex flex-col will-change-transform opacity-0 relative`}
+                style={{ transformStyle: 'preserve-3d', borderRadius: '1rem' }}
               >
+                {/* Poker suit watermark */}
+                <div className="absolute top-3 right-4 text-4xl md:text-5xl select-none pointer-events-none leading-none"
+                  style={{ color: suitColors[i] }}
+                >
+                  {suitSymbols[i]}
+                </div>
+
                 {/* VIP badge */}
                 {isVip && (
                   <div className="self-start px-3 py-0.5 rounded-full bg-purple-500/20 border border-purple-500/30 text-[10px] tracking-widest uppercase text-purple-300 font-bold mb-3">
@@ -80,8 +88,12 @@ export default function Membership() {
                   {tier.price}
                 </div>
 
-                {/* Divider */}
-                <div className={`h-px mb-5 ${isVip ? 'bg-purple-500/25' : 'bg-white/8'}`} />
+                {/* Divider with suit */}
+                <div className="flex items-center gap-2 mb-5">
+                  <div className={`flex-1 h-px ${isVip ? 'bg-purple-500/25' : 'bg-white/8'}`} />
+                  <span className={`text-[10px] ${isVip ? 'text-purple-400/40' : 'text-white/10'}`}>{suitSymbols[i]}</span>
+                  <div className={`flex-1 h-px ${isVip ? 'bg-purple-500/25' : 'bg-white/8'}`} />
+                </div>
 
                 {/* Features */}
                 <ul className="space-y-2.5 flex-1">
@@ -94,6 +106,11 @@ export default function Membership() {
                     </li>
                   ))}
                 </ul>
+
+                {/* Bottom poker suit decoration */}
+                <div className="absolute bottom-3 left-4 text-xl select-none pointer-events-none opacity-[0.03]">
+                  {suitSymbols[i]}
+                </div>
               </div>
             );
           })}

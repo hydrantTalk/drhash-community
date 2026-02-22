@@ -5,6 +5,7 @@ import Lenis from 'lenis';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { LangProvider } from '@/context/LanguageContext';
+import CryptoCanvas from '@/components/CryptoCanvas';
 import Navbar from '@/components/Navbar';
 import Hero from '@/components/Hero';
 import Stats from '@/components/Stats';
@@ -38,16 +39,27 @@ function App() {
   }, []);
 
   return (
-    <main className="noise">
-      <Navbar />
-      <Hero />
-      <Stats />
-      <Services />
-      <Membership />
-      <Founder />
-      <Media />
-      <CTA />
-    </main>
+    <>
+      {/* Global floating crypto symbols background */}
+      <CryptoCanvas />
+
+      <main className="noise relative z-[1]">
+        <Navbar />
+        <Hero />
+        <div className="section-divider" />
+        <Stats />
+        <div className="section-divider" />
+        <Services />
+        <div className="section-divider" />
+        <Membership />
+        <div className="section-divider" />
+        <Founder />
+        <div className="section-divider" />
+        <Media />
+        <div className="section-divider" />
+        <CTA />
+      </main>
+    </>
   );
 }
 
