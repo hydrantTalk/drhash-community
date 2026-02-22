@@ -62,16 +62,28 @@ export default function Hero() {
 
   return (
     <section ref={sectionRef} className="relative h-screen flex items-center justify-center overflow-hidden scanlines">
-      {/* Video background */}
+      {/* Video background - landscape (desktop/tablet) */}
       <video
         autoPlay
         muted
         loop
         playsInline
-        className="absolute inset-0 w-full h-full object-cover opacity-30 pointer-events-none"
+        className="absolute inset-0 w-full h-full object-cover opacity-30 pointer-events-none hidden sm:block"
         aria-hidden="true"
       >
         <source src={`${process.env.NODE_ENV === 'production' ? '/drhash-community' : ''}/wesley-avatar.mp4`} type="video/mp4" />
+      </video>
+
+      {/* Video background - portrait (mobile) */}
+      <video
+        autoPlay
+        muted
+        loop
+        playsInline
+        className="absolute inset-0 w-full h-full object-cover opacity-30 pointer-events-none block sm:hidden"
+        aria-hidden="true"
+      >
+        <source src={`${process.env.NODE_ENV === 'production' ? '/drhash-community' : ''}/wesley-avatar-portrait.mp4`} type="video/mp4" />
       </video>
 
       {/* Dark gradient overlays */}
