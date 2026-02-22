@@ -1,60 +1,34 @@
 'use client';
 
 import React, { createContext, useContext, useState, useCallback, ReactNode } from 'react';
-import zhMessages from '@/i18n/zh.json';
-import enMessages from '@/i18n/en.json';
+import zh from '@/i18n/zh.json';
+import en from '@/i18n/en.json';
 
 type Locale = 'zh' | 'en';
-
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 type Messages = Record<string, any>;
 
-interface LanguageContextType {
+interface LangCtx {
   locale: Locale;
-  messages: Messages;
-  toggleLocale: () => void;
-  t: (path: string) => string;
+  m: Messages;
+  toggle: () => void;
 }
 
-const messagesMap: Record<Locale, Messages> = {
-  zh: zhMessages,
-  en: enMessages,
-};
+const map: Record<Locale, Messages> = { zh, en };
+const Ctx = createContext<LangCtx | null>(null);
 
-const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
-
-export function LanguageProvider({ children }: { children: ReactNode }) {
+export function LangProvider({ children }: { children: ReactNode }) {
   const [locale, setLocale] = useState<Locale>('zh');
-  const messages = messagesMap[locale];
-
-  const toggleLocale = useCallback(() => {
-    setLocale((prev) => (prev === 'zh' ? 'en' : 'zh'));
-  }, []);
-
-  const t = useCallback(
-    (path: string): string => {
-      const keys = path.split('.');
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      let result: any = messages;
-      for (const key of keys) {
-        result = result?.[key];
-      }
-      return typeof result === 'string' ? result : path;
-    },
-    [messages]
-  );
-
+  const toggle = useCallback(() => setLocale(p => (p === 'zh' ? 'en' : 'zh')), []);
   return (
-    <LanguageContext.Provider value={{ locale, messages, toggleLocale, t }}>
+    <Ctx.Provider value={{ locale, m: map[locale], toggle }}>
       {children}
-    </LanguageContext.Provider>
+    </Ctx.Provider>
   );
 }
 
-export function useLanguage() {
-  const context = useContext(LanguageContext);
-  if (!context) {
-    throw new Error('useLanguage must be used within a LanguageProvider');
-  }
-  return context;
+export function useLang() {
+  const ctx = useContext(Ctx);
+  if (!ctx) throw new Error('useLang must be inside LangProvider');
+  return ctx;
 }

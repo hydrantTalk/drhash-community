@@ -1,32 +1,60 @@
 'use client';
 
-import { LanguageProvider } from '@/context/LanguageContext';
+import { useEffect } from 'react';
+import Lenis from 'lenis';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { LangProvider } from '@/context/LanguageContext';
 import Navbar from '@/components/Navbar';
 import Hero from '@/components/Hero';
-import About from '@/components/About';
-import Services from '@/components/Services';
 import Stats from '@/components/Stats';
+import Services from '@/components/Services';
 import Membership from '@/components/Membership';
 import Founder from '@/components/Founder';
 import Media from '@/components/Media';
-import Contact from '@/components/Contact';
-import Footer from '@/components/Footer';
+import CTA from '@/components/CTA';
+
+gsap.registerPlugin(ScrollTrigger);
+
+function App() {
+  useEffect(() => {
+    const lenis = new Lenis({
+      duration: 1.2,
+      easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+      smoothWheel: true,
+    });
+
+    lenis.on('scroll', ScrollTrigger.update);
+
+    gsap.ticker.add((time) => {
+      lenis.raf(time * 1000);
+    });
+    gsap.ticker.lagSmoothing(0);
+
+    return () => {
+      lenis.destroy();
+      gsap.ticker.remove(lenis.raf);
+    };
+  }, []);
+
+  return (
+    <main className="noise">
+      <Navbar />
+      <Hero />
+      <Stats />
+      <Services />
+      <Membership />
+      <Founder />
+      <Media />
+      <CTA />
+    </main>
+  );
+}
 
 export default function Home() {
   return (
-    <LanguageProvider>
-      <main className="relative">
-        <Navbar />
-        <Hero />
-        <About />
-        <Services />
-        <Stats />
-        <Membership />
-        <Founder />
-        <Media />
-        <Contact />
-        <Footer />
-      </main>
-    </LanguageProvider>
+    <LangProvider>
+      <App />
+    </LangProvider>
   );
 }
