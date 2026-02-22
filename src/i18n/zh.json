@@ -1,0 +1,149 @@
+{
+  "nav": {
+    "about": "关于我们",
+    "services": "社区服务",
+    "data": "社区数据",
+    "membership": "加入社区",
+    "founder": "创始人",
+    "media": "社区媒体",
+    "contact": "联系我们"
+  },
+  "hero": {
+    "tagline": "Web3 加密社区",
+    "title_1": "探索加密世界的",
+    "title_2": "无限可能",
+    "description": "Dr.Hash 是一个以投研、服务为主的加密社区，成立于2021年，汇聚 22,000+ 加密交易者，为您提供最前沿的市场洞察与交易策略。",
+    "cta_join": "加入社区",
+    "cta_learn": "了解更多"
+  },
+  "about": {
+    "badge": "关于 Dr.Hash",
+    "title": "连接加密世界的桥梁",
+    "description": "Dr.Hash 成立3年来，吸引了数以万计的加密货币交易者，其中包括主流代币的合约和现货交易者。我们已经建立了一个最完善的交易社区，并与 Binance、OKX 和 Bitget 等交易所建立了深入的合作关系。",
+    "description_2": "与此同时，我们在尝试新的加密领域，包括链上 DeFi、NFT、Depin、Gamefi 和 Socialfi 等，为加密世界用户带来更好的社区体验。",
+    "since": "成立于",
+    "since_value": "2021年",
+    "users": "社区用户",
+    "users_value": "22,000+",
+    "partners": "合作交易所",
+    "partners_value": "Binance · OKX · Bitget"
+  },
+  "services": {
+    "badge": "社区服务",
+    "title": "我们能为您做什么",
+    "items": [
+      {
+        "title": "早期项目挖掘",
+        "description": "Alpha 是我们核心探索方向。通过对融资事件、赛道趋势、用户数据综合研究，找出更多优质项目。",
+        "icon": "search"
+      },
+      {
+        "title": "趋势交易",
+        "description": "通过技术分析工具和指标来识别和确认市场趋势，基于市场趋势和价格走势为社区用户提供交易策略。",
+        "icon": "chart"
+      },
+      {
+        "title": "投研内容产出",
+        "description": "通过项目深度调研、数据挖掘、操作拆解为项目和用户搭建对话桥梁，让用户更懂项目、让项目更多传播。",
+        "icon": "document"
+      },
+      {
+        "title": "社区服务",
+        "description": "为项目提供内容、用户、营销和金融数据服务。包括品牌曝光、内容营销、社区建设、活动策划与执行等。",
+        "icon": "community"
+      }
+    ]
+  },
+  "stats": {
+    "badge": "社区数据",
+    "title": "用数据说话",
+    "items": [
+      { "value": 6500, "suffix": "+", "label": "累积付费用户" },
+      { "value": 40, "suffix": "+", "label": "合作社区" },
+      { "value": 780000, "suffix": "+", "label": "KOL矩阵粉丝" },
+      { "value": 70, "suffix": "+", "label": "服务客户" },
+      { "value": 50, "suffix": "+", "label": "AMA / Space" },
+      { "value": 650, "suffix": "+", "label": "输出研报" },
+      { "value": 18, "suffix": "+", "label": "线下活动" },
+      { "value": 48, "suffix": "+", "label": "合作媒体" }
+    ]
+  },
+  "membership": {
+    "badge": "成为社区成员",
+    "title": "选择适合您的方式",
+    "tiers": [
+      {
+        "name": "基础",
+        "price": "FREE",
+        "features": [
+          "查看社交媒体发布内容（延迟性）",
+          "关注 @CryptoApprenti1",
+          "关注 @DrHashClub"
+        ],
+        "highlight": false
+      },
+      {
+        "name": "核心群",
+        "price": "FREE",
+        "features": [
+          "使用 Dr.Hash 邀请码注册 Binance/OKX/Bitget/Bybit/BackPack",
+          "所有 Cex 手续费返现",
+          "基础现货 / 合约 / 山寨 / 撸毛 大盘行情趋势分析",
+          "部分 VIP 群逻辑见解解读",
+          "每月 1-2 次直播分享",
+          "不定期抽奖福利"
+        ],
+        "highlight": false
+      },
+      {
+        "name": "QQ VIP 群",
+        "price": "收费",
+        "features": [
+          "实时分享所有仓位操作",
+          "所有 Cex 手续费最高返现比例",
+          "基础现货 / 合约 / 山寨 / 撸毛 大盘行情趋势分析",
+          "可私聊咨询 Wesley 各种问题",
+          "世界最顶尖牌手 & 顶尖交易员 (ok牛人榜前10)",
+          "每月 1-2 次直播分享",
+          "节日礼物 / 不定期抽奖福利 / 线下活动聚会"
+        ],
+        "highlight": true
+      }
+    ]
+  },
+  "founder": {
+    "badge": "创始人",
+    "title": "Wesley",
+    "role": "Dr.Hash 创始人 & CIO",
+    "description": "Wesley 是一位知名的扑克玩家和加密货币投资者。他是洛杉矶一家家族办公室的首席投资官，独立管理着一个3亿美元的基金，专注于区块链、加密货币、股票和大宗商品投资。",
+    "achievements": [
+      "世界顶尖扑克牌手，创造德州扑克多项纪录",
+      "洛杉矶家族办公室首席投资官",
+      "独立管理 3 亿美元基金",
+      "OKX 牛人榜前 10 交易员"
+    ],
+    "social": "@CryptoApprentil"
+  },
+  "media": {
+    "badge": "社区媒体",
+    "title": "关注我们",
+    "platforms": [
+      { "name": "Discord", "handle": "Dr.Hash Club", "url": "#" },
+      { "name": "Telegram", "handle": "Dr.Hash Research", "url": "#" },
+      { "name": "Bilibili", "handle": "哈希社区 DrHashResearch", "url": "#" },
+      { "name": "YouTube", "handle": "Wesley Poker", "url": "#" },
+      { "name": "X (Twitter)", "handle": "@DrHashClub", "url": "#" }
+    ]
+  },
+  "contact": {
+    "badge": "联系我们",
+    "title": "开始您的加密之旅",
+    "description": "享受 VIP 体验、订阅交易实时策略、协助处理各种 Cex / 资金问题。X 私信 @DrhashClub 获得链接或者联系方式。",
+    "email": "peas@blockinfinity.fund",
+    "cta": "立即加入"
+  },
+  "footer": {
+    "copyright": "© 2024 Dr.Hash Community. All rights reserved.",
+    "tagline": "探索加密世界的无限可能"
+  }
+}

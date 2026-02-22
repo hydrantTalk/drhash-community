@@ -1,0 +1,149 @@
+{
+  "nav": {
+    "about": "About",
+    "services": "Services",
+    "data": "Data",
+    "membership": "Membership",
+    "founder": "Founder",
+    "media": "Media",
+    "contact": "Contact"
+  },
+  "hero": {
+    "tagline": "Web3 Crypto Community",
+    "title_1": "Explore the Infinite",
+    "title_2": "Possibilities of Crypto",
+    "description": "Dr.Hash is a research & service-driven crypto community founded in 2021, bringing together 22,000+ crypto traders with cutting-edge market insights and trading strategies.",
+    "cta_join": "Join Community",
+    "cta_learn": "Learn More"
+  },
+  "about": {
+    "badge": "About Dr.Hash",
+    "title": "Bridging the Crypto World",
+    "description": "Since its founding, Dr.Hash has attracted tens of thousands of cryptocurrency traders, including contract and spot traders of mainstream tokens. We have built the most comprehensive trading community with deep partnerships with exchanges like Binance, OKX, and Bitget.",
+    "description_2": "We are also exploring new crypto frontiers including on-chain DeFi, NFT, Depin, Gamefi, and Socialfi to bring better community experiences to crypto users worldwide.",
+    "since": "Founded",
+    "since_value": "2021",
+    "users": "Community Users",
+    "users_value": "22,000+",
+    "partners": "Exchange Partners",
+    "partners_value": "Binance · OKX · Bitget"
+  },
+  "services": {
+    "badge": "Services",
+    "title": "What We Can Do For You",
+    "items": [
+      {
+        "title": "Alpha Discovery",
+        "description": "Alpha is our core exploration direction. Through comprehensive research on funding events, track trends, and user data, we identify premium projects.",
+        "icon": "search"
+      },
+      {
+        "title": "Trend Trading",
+        "description": "Using technical analysis tools and indicators to identify market trends and provide community users with trading strategies based on market movements.",
+        "icon": "chart"
+      },
+      {
+        "title": "Research Output",
+        "description": "Through in-depth project research, data mining, and operational analysis, we bridge the gap between projects and users for better understanding and wider reach.",
+        "icon": "document"
+      },
+      {
+        "title": "Community Services",
+        "description": "Providing content, user acquisition, marketing and financial data services. Including brand exposure, content marketing, community building, and event planning.",
+        "icon": "community"
+      }
+    ]
+  },
+  "stats": {
+    "badge": "Community Data",
+    "title": "Numbers That Speak",
+    "items": [
+      { "value": 6500, "suffix": "+", "label": "Paid Users" },
+      { "value": 40, "suffix": "+", "label": "Partner Communities" },
+      { "value": 780000, "suffix": "+", "label": "KOL Followers" },
+      { "value": 70, "suffix": "+", "label": "Clients Served" },
+      { "value": 50, "suffix": "+", "label": "AMA / Spaces" },
+      { "value": 650, "suffix": "+", "label": "Research Reports" },
+      { "value": 18, "suffix": "+", "label": "Offline Events" },
+      { "value": 48, "suffix": "+", "label": "Media Partners" }
+    ]
+  },
+  "membership": {
+    "badge": "Become a Member",
+    "title": "Choose Your Path",
+    "tiers": [
+      {
+        "name": "Basic",
+        "price": "FREE",
+        "features": [
+          "Access social media content (delayed)",
+          "Follow @CryptoApprenti1",
+          "Follow @DrHashClub"
+        ],
+        "highlight": false
+      },
+      {
+        "name": "Core Group",
+        "price": "FREE",
+        "features": [
+          "Register on Binance/OKX/Bitget/Bybit/BackPack with Dr.Hash referral",
+          "CEX fee rebates on all exchanges",
+          "Spot / Futures / Altcoin / Airdrop market trend analysis",
+          "Partial VIP group insights & analysis",
+          "1-2 live streaming sessions per month",
+          "Irregular lottery benefits"
+        ],
+        "highlight": false
+      },
+      {
+        "name": "VIP Group",
+        "price": "PAID",
+        "features": [
+          "Real-time sharing of all position operations",
+          "Highest CEX fee rebate ratios",
+          "Spot / Futures / Altcoin / Airdrop market trend analysis",
+          "Private consultation with Wesley",
+          "World-class poker player & Top 10 OKX trader insights",
+          "1-2 live streaming sessions per month",
+          "Holiday gifts / Lottery benefits / Offline meetups"
+        ],
+        "highlight": true
+      }
+    ]
+  },
+  "founder": {
+    "badge": "Founder",
+    "title": "Wesley",
+    "role": "Dr.Hash Founder & CIO",
+    "description": "Wesley is a renowned poker player and cryptocurrency investor. He serves as the Chief Investment Officer of a Los Angeles-based family office, independently managing a $300 million fund focused on blockchain, cryptocurrency, stocks, and commodity investments.",
+    "achievements": [
+      "World-class poker player with multiple Texas Hold'em records",
+      "CIO of a Los Angeles family office",
+      "Independently manages a $300M fund",
+      "Top 10 trader on OKX leaderboard"
+    ],
+    "social": "@CryptoApprentil"
+  },
+  "media": {
+    "badge": "Community Media",
+    "title": "Follow Us",
+    "platforms": [
+      { "name": "Discord", "handle": "Dr.Hash Club", "url": "#" },
+      { "name": "Telegram", "handle": "Dr.Hash Research", "url": "#" },
+      { "name": "Bilibili", "handle": "DrHashResearch", "url": "#" },
+      { "name": "YouTube", "handle": "Wesley Poker", "url": "#" },
+      { "name": "X (Twitter)", "handle": "@DrHashClub", "url": "#" }
+    ]
+  },
+  "contact": {
+    "badge": "Contact Us",
+    "title": "Start Your Crypto Journey",
+    "description": "Enjoy VIP experience, subscribe to real-time trading strategies, and get assistance with CEX / fund issues. DM @DrhashClub on X for links or contact info.",
+    "email": "peas@blockinfinity.fund",
+    "cta": "Join Now"
+  },
+  "footer": {
+    "copyright": "© 2024 Dr.Hash Community. All rights reserved.",
+    "tagline": "Explore the Infinite Possibilities of Crypto"
+  }
+}
