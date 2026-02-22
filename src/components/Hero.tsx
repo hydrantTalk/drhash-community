@@ -106,7 +106,7 @@ export default function Hero() {
             className="hero-line2 glitch text-[clamp(3.5rem,12vw,11rem)] font-black leading-[0.85] tracking-tighter opacity-0"
             data-text="HASH"
           >
-            <span className="text-grad">HASH</span>
+            <span className="text-purple-hero">HASH</span>
           </h1>
         </div>
 

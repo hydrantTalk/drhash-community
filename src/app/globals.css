@@ -167,6 +167,14 @@ body {
   background-clip: text;
 }
 
+/* Hero HASH - full purple gradient */
+.text-purple-hero {
+  background: linear-gradient(180deg, #B8A8D8 0%, #8E7CC3 40%, #7A68B0 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
 .text-grad-wide {
   background: linear-gradient(135deg, var(--blue), var(--purple), var(--pink));
   -webkit-background-clip: text;
