@@ -12,14 +12,21 @@ const config: Config = {
         background: "#0a0a0f",
         foreground: "#ffffff",
         primary: {
-          DEFAULT: "#8B5CF6",
-          light: "#A855F7",
-          dark: "#7C3AED",
+          DEFAULT: "#8E7CC3",
+          light: "#A898D4",
+          dark: "#7A68B0",
         },
         accent: {
-          purple: "#8B5CF6",
+          purple: "#8E7CC3",
           pink: "#EC4899",
           blue: "#3B82F6",
+        },
+        purple: {
+          300: '#B8A8D8',
+          400: '#A090CE',
+          500: '#8E7CC3',
+          600: '#7A68B0',
+          700: '#66559D',
         },
         surface: {
           DEFAULT: "#111118",
@@ -47,8 +54,8 @@ const config: Config = {
           '50%': { transform: 'translateY(-20px)' },
         },
         glow: {
-          '0%': { boxShadow: '0 0 20px rgba(139, 92, 246, 0.3)' },
-          '100%': { boxShadow: '0 0 40px rgba(139, 92, 246, 0.6)' },
+          '0%': { boxShadow: '0 0 20px rgba(142, 124, 195, 0.3)' },
+          '100%': { boxShadow: '0 0 40px rgba(142, 124, 195, 0.6)' },
         },
         gradient: {
           '0%, 100%': { backgroundPosition: '0% 50%' },

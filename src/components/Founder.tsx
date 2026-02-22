@@ -33,12 +33,12 @@ function PokerBackground() {
 
   // Poker chips scattered
   const chips = [
-    { cx: 180, cy: 180, r: 28, color: 'rgba(139,92,246,', delay: 0 },
+    { cx: 180, cy: 180, r: 28, color: 'rgba(142,124,195,', delay: 0 },
     { cx: 500, cy: 600, r: 22, color: 'rgba(247,181,0,', delay: -2 },
     { cx: 800, cy: 80, r: 32, color: 'rgba(236,72,153,', delay: -1 },
     { cx: 1200, cy: 400, r: 25, color: 'rgba(34,197,94,', delay: -3 },
     { cx: 380, cy: 180, r: 18, color: 'rgba(247,181,0,', delay: -4 },
-    { cx: 1000, cy: 550, r: 30, color: 'rgba(139,92,246,', delay: -1.5 },
+    { cx: 1000, cy: 550, r: 30, color: 'rgba(142,124,195,', delay: -1.5 },
     { cx: 650, cy: 450, r: 20, color: 'rgba(236,72,153,', delay: -2.5 },
     { cx: 100, cy: 500, r: 24, color: 'rgba(34,197,94,', delay: -3.5 },
     { cx: 1300, cy: 200, r: 26, color: 'rgba(247,181,0,', delay: -0.5 },
@@ -60,9 +60,9 @@ function PokerBackground() {
         <ellipse cx={w / 2} cy={h / 2} rx="550" ry="280"
           fill="url(#feltGrad)" />
         <ellipse cx={w / 2} cy={h / 2} rx="550" ry="280"
-          fill="none" stroke="rgba(139,92,246,0.04)" strokeWidth="2" />
+          fill="none" stroke="rgba(142,124,195,0.04)" strokeWidth="2" />
         <ellipse cx={w / 2} cy={h / 2} rx="520" ry="260"
-          fill="none" stroke="rgba(139,92,246,0.02)" strokeWidth="1" />
+          fill="none" stroke="rgba(142,124,195,0.02)" strokeWidth="1" />
 
         {/* Face-up poker cards */}
         {cards.map((card, i) => (
@@ -104,8 +104,8 @@ function PokerBackground() {
         {backCards.map((card, i) => (
           <g key={`back-${i}`} transform={`rotate(${card.rot} ${card.x + cw / 2} ${card.y + ch / 2})`}>
             <rect x={card.x} y={card.y} width={cw} height={ch} rx="4"
-              fill="rgba(139,92,246,0.03)"
-              stroke="rgba(139,92,246,0.08)"
+              fill="rgba(142,124,195,0.03)"
+              stroke="rgba(142,124,195,0.08)"
               strokeWidth="0.8" />
             {/* Diamond lattice pattern */}
             <clipPath id={`clip-back-${i}`}>
@@ -120,7 +120,7 @@ function PokerBackground() {
                     <path key={`d-${row}-${col}`}
                       d={`M${dx + 7} ${dy} L${dx + 11} ${dy + 5} L${dx + 7} ${dy + 10} L${dx + 3} ${dy + 5} Z`}
                       fill="none"
-                      stroke="rgba(139,92,246,0.06)"
+                      stroke="rgba(142,124,195,0.06)"
                       strokeWidth="0.4" />
                   );
                 })
@@ -179,10 +179,10 @@ function PokerBackground() {
               <g key={`royal-${i}`} transform={`rotate(${hc.rot} ${offsetX + smallCW / 2} ${handY + smallCH})`}>
                 <rect x={offsetX} y={handY} width={smallCW} height={smallCH} rx="3"
                   fill="rgba(12,12,18,0.4)"
-                  stroke="rgba(139,92,246,0.06)"
+                  stroke="rgba(142,124,195,0.06)"
                   strokeWidth="0.6" />
-                <text x={offsetX + 6} y={handY + 14} fontSize="9" fontWeight="bold" fill="rgba(139,92,246,0.1)" fontFamily="Georgia,serif">{hc.rank}</text>
-                <text x={offsetX + smallCW / 2} y={handY + smallCH / 2 + 6} textAnchor="middle" fontSize="16" fill="rgba(139,92,246,0.06)" fontFamily="serif">{hc.suit}</text>
+                <text x={offsetX + 6} y={handY + 14} fontSize="9" fontWeight="bold" fill="rgba(142,124,195,0.1)" fontFamily="Georgia,serif">{hc.rank}</text>
+                <text x={offsetX + smallCW / 2} y={handY + smallCH / 2 + 6} textAnchor="middle" fontSize="16" fill="rgba(142,124,195,0.06)" fontFamily="serif">{hc.suit}</text>
               </g>
             );
           });
@@ -232,10 +232,10 @@ function RoyalFlush({ className }: { className?: string }) {
         return (
           <g key={i}>
             <rect x={x} y="10" width="50" height="75" rx="4"
-              fill="rgba(139,92,246,0.03)"
-              stroke="rgba(139,92,246,0.12)"
+              fill="rgba(142,124,195,0.03)"
+              stroke="rgba(142,124,195,0.12)"
               strokeWidth="0.8" />
-            <text x={x + 6} y="26" fontSize="10" fontWeight="bold" fill="rgba(139,92,246,0.25)" fontFamily="Georgia,serif">{label}</text>
+            <text x={x + 6} y="26" fontSize="10" fontWeight="bold" fill="rgba(142,124,195,0.25)" fontFamily="Georgia,serif">{label}</text>
             <text x={x + 6} y="37" fontSize="8" fill="rgba(255,255,255,0.12)" fontFamily="Georgia,serif">♠</text>
             <text x={x + 25} y="58" textAnchor="middle" fontSize="20" fill="rgba(255,255,255,0.06)" fontFamily="Georgia,serif">♠</text>
           </g>
@@ -265,7 +265,7 @@ function TimelineChip({ color, label }: { color: string; label: string }) {
 const achievements = [
   { year: '2018', color: '#22C55E', label: '♠' },
   { year: '2021', color: '#F7931A', label: '₿' },
-  { year: '2024', color: '#8B5CF6', label: '◎' },
+  { year: '2024', color: '#8E7CC3', label: '◎' },
 ];
 
 export default function Founder() {

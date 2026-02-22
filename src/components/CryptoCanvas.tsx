@@ -34,14 +34,14 @@ function drawChip(
   const r = size * 0.45;
 
   // Outer ring
-  ctx.strokeStyle = 'rgba(139, 92, 246, 0.8)';
+  ctx.strokeStyle = 'rgba(142, 124, 195, 0.8)';
   ctx.lineWidth = 2;
   ctx.beginPath();
   ctx.arc(0, 0, r, 0, Math.PI * 2);
   ctx.stroke();
 
   // Inner circle
-  ctx.strokeStyle = 'rgba(139, 92, 246, 0.5)';
+  ctx.strokeStyle = 'rgba(142, 124, 195, 0.5)';
   ctx.lineWidth = 1;
   ctx.beginPath();
   ctx.arc(0, 0, r * 0.6, 0, Math.PI * 2);
@@ -177,7 +177,7 @@ function drawCardBack(
   const h = size * 0.7;
 
   // Card outline
-  ctx.strokeStyle = 'rgba(139, 92, 246, 0.7)';
+  ctx.strokeStyle = 'rgba(142, 124, 195, 0.7)';
   ctx.lineWidth = 1;
   const r = 3;
   ctx.beginPath();
@@ -194,7 +194,7 @@ function drawCardBack(
   ctx.stroke();
 
   // Inner diamond pattern
-  ctx.strokeStyle = 'rgba(139, 92, 246, 0.4)';
+  ctx.strokeStyle = 'rgba(142, 124, 195, 0.4)';
   ctx.lineWidth = 0.5;
   ctx.beginPath();
   ctx.moveTo(0, -h * 0.3);
@@ -306,7 +306,7 @@ export default function CryptoCanvas() {
           else if (s.type === '↗') ctx.fillStyle = '#22C55E';
           else if (s.type === '↘') ctx.fillStyle = '#EF4444';
           else if (s.type === '$' || s.type === '€') ctx.fillStyle = '#22C55E';
-          else ctx.fillStyle = '#8B5CF6';
+          else ctx.fillStyle = '#8E7CC3';
 
           ctx.fillText(s.type, 0, 0);
           ctx.restore();

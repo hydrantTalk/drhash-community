@@ -9,7 +9,7 @@ gsap.registerPlugin(ScrollTrigger);
 
 /* Chip Stack SVG */
 function ChipStack({ className, color = 'purple' }: { className?: string; color?: string }) {
-  const c = color === 'purple' ? 'rgba(139,92,246,' : 'rgba(236,72,153,';
+  const c = color === 'purple' ? 'rgba(142,124,195,' : 'rgba(236,72,153,';
   return (
     <svg className={className} viewBox="0 0 80 120" fill="none" xmlns="http://www.w3.org/2000/svg">
       {[0, 15, 30, 45].map((y, i) => (
@@ -49,12 +49,12 @@ function KLineSVG({ className }: { className?: string }) {
   return (
     <svg className={className} viewBox="0 0 400 200" fill="none" xmlns="http://www.w3.org/2000/svg">
       {[0, 50, 100, 150, 200].map((y) => (
-        <line key={`h-${y}`} x1="0" y1={y} x2="400" y2={y} stroke="rgba(139,92,246,0.05)" strokeWidth="0.5" />
+        <line key={`h-${y}`} x1="0" y1={y} x2="400" y2={y} stroke="rgba(142,124,195,0.05)" strokeWidth="0.5" />
       ))}
       {[0, 80, 160, 240, 320, 400].map((x) => (
-        <line key={`v-${x}`} x1={x} y1="0" x2={x} y2="200" stroke="rgba(139,92,246,0.05)" strokeWidth="0.5" />
+        <line key={`v-${x}`} x1={x} y1="0" x2={x} y2="200" stroke="rgba(142,124,195,0.05)" strokeWidth="0.5" />
       ))}
-      <path d="M0 160 L60 140 L120 150 L180 100 L240 80 L300 40 L360 55 L400 30" stroke="rgba(139,92,246,0.12)" strokeWidth="1.5" fill="none" />
+      <path d="M0 160 L60 140 L120 150 L180 100 L240 80 L300 40 L360 55 L400 30" stroke="rgba(142,124,195,0.12)" strokeWidth="1.5" fill="none" />
       <path d="M0 160 L60 140 L120 150 L180 100 L240 80 L300 40 L360 55 L400 30 L400 200 L0 200 Z" fill="url(#areaGrad)" />
       {[
         { x: 60, o: 145, c: 135, h: 125, l: 155, bull: true },
@@ -73,8 +73,8 @@ function KLineSVG({ className }: { className?: string }) {
       ))}
       <defs>
         <linearGradient id="areaGrad" x1="200" y1="30" x2="200" y2="200" gradientUnits="userSpaceOnUse">
-          <stop stopColor="rgba(139,92,246,0.06)" />
-          <stop offset="1" stopColor="rgba(139,92,246,0)" />
+          <stop stopColor="rgba(142,124,195,0.06)" />
+          <stop offset="1" stopColor="rgba(142,124,195,0)" />
         </linearGradient>
       </defs>
     </svg>

@@ -65,8 +65,8 @@ function KLineBackground() {
           const y = priceToY(price);
           return (
             <g key={`h-${i}`}>
-              <line x1={padX} y1={y} x2={w - padX} y2={y} stroke="rgba(139,92,246,0.04)" strokeWidth="0.5" strokeDasharray="4 8" />
-              <text x={padX - 5} y={y + 4} textAnchor="end" fontSize="8" fill="rgba(139,92,246,0.08)" fontFamily="monospace">{price}</text>
+              <line x1={padX} y1={y} x2={w - padX} y2={y} stroke="rgba(142,124,195,0.04)" strokeWidth="0.5" strokeDasharray="4 8" />
+              <text x={padX - 5} y={y + 4} textAnchor="end" fontSize="8" fill="rgba(142,124,195,0.08)" fontFamily="monospace">{price}</text>
             </g>
           );
         })}
@@ -75,7 +75,7 @@ function KLineBackground() {
         {[0, 4, 8, 12, 16, 20, 24].map((idx) => {
           const x = padX + idx * candleW + candleW / 2;
           return (
-            <line key={`v-${idx}`} x1={x} y1={padY} x2={x} y2={h - padY} stroke="rgba(139,92,246,0.03)" strokeWidth="0.5" strokeDasharray="4 8" />
+            <line key={`v-${idx}`} x1={x} y1={padY} x2={x} y2={h - padY} stroke="rgba(142,124,195,0.03)" strokeWidth="0.5" strokeDasharray="4 8" />
           );
         })}
 
@@ -124,7 +124,7 @@ function KLineBackground() {
         {/* Moving average line */}
         <polyline
           points={maPoints.join(' ')}
-          stroke="rgba(139,92,246,0.12)"
+          stroke="rgba(142,124,195,0.12)"
           strokeWidth="1.5"
           fill="none"
           strokeLinejoin="round"
@@ -170,8 +170,8 @@ function KLineBackground() {
           });
           return (
             <>
-              <polyline points={upper.join(' ')} stroke="rgba(139,92,246,0.04)" strokeWidth="0.5" fill="none" strokeDasharray="6 4" />
-              <polyline points={lower.join(' ')} stroke="rgba(139,92,246,0.04)" strokeWidth="0.5" fill="none" strokeDasharray="6 4" />
+              <polyline points={upper.join(' ')} stroke="rgba(142,124,195,0.04)" strokeWidth="0.5" fill="none" strokeDasharray="6 4" />
+              <polyline points={lower.join(' ')} stroke="rgba(142,124,195,0.04)" strokeWidth="0.5" fill="none" strokeDasharray="6 4" />
             </>
           );
         })()}
@@ -179,8 +179,8 @@ function KLineBackground() {
         {/* Gradient definitions */}
         <defs>
           <linearGradient id="klineFill" x1="600" y1="0" x2="600" y2={h} gradientUnits="userSpaceOnUse">
-            <stop stopColor="rgba(139,92,246,0.04)" />
-            <stop offset="1" stopColor="rgba(139,92,246,0)" />
+            <stop stopColor="rgba(142,124,195,0.04)" />
+            <stop offset="1" stopColor="rgba(142,124,195,0)" />
           </linearGradient>
         </defs>
       </svg>
@@ -224,7 +224,7 @@ function MiniKLine({ className, bull }: { className?: string; bull: boolean }) {
 }
 
 const cornerColors = [
-  { border: 'rgba(139, 92, 246, 0.2)', bg: 'rgba(139, 92, 246, 0.05)' },
+  { border: 'rgba(142, 124, 195, 0.2)', bg: 'rgba(142, 124, 195, 0.05)' },
   { border: 'rgba(34, 197, 94, 0.2)', bg: 'rgba(34, 197, 94, 0.05)' },
   { border: 'rgba(236, 72, 153, 0.2)', bg: 'rgba(236, 72, 153, 0.05)' },
   { border: 'rgba(247, 147, 26, 0.2)', bg: 'rgba(247, 147, 26, 0.05)' },

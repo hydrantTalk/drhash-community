@@ -11,11 +11,11 @@ gsap.registerPlugin(ScrollTrigger);
 function AceOfSpades({ className }: { className?: string }) {
   return (
     <svg className={className} viewBox="0 0 120 170" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <rect x="1" y="1" width="118" height="168" rx="8" stroke="rgba(139,92,246,0.15)" strokeWidth="1" fill="rgba(139,92,246,0.03)" />
-      <text x="12" y="28" fontSize="16" fontWeight="bold" fill="rgba(139,92,246,0.25)" fontFamily="Georgia,serif">A</text>
+      <rect x="1" y="1" width="118" height="168" rx="8" stroke="rgba(142,124,195,0.15)" strokeWidth="1" fill="rgba(142,124,195,0.03)" />
+      <text x="12" y="28" fontSize="16" fontWeight="bold" fill="rgba(142,124,195,0.25)" fontFamily="Georgia,serif">A</text>
       <text x="12" y="44" fontSize="14" fill="rgba(255,255,255,0.15)" fontFamily="Georgia,serif">♠</text>
       <text x="60" y="100" fontSize="48" textAnchor="middle" fill="rgba(255,255,255,0.08)" fontFamily="Georgia,serif">♠</text>
-      <text x="108" y="158" fontSize="16" fontWeight="bold" fill="rgba(139,92,246,0.25)" textAnchor="end" fontFamily="Georgia,serif" transform="rotate(180 108 150)">A</text>
+      <text x="108" y="158" fontSize="16" fontWeight="bold" fill="rgba(142,124,195,0.25)" textAnchor="end" fontFamily="Georgia,serif" transform="rotate(180 108 150)">A</text>
     </svg>
   );
 }
@@ -117,7 +117,7 @@ export default function Hero() {
               key={i}
               className="text-base sm:text-lg md:text-xl opacity-0"
               style={{
-                color: icon === '₿' ? '#F7931A' : icon === '♥' || icon === '♦' ? '#EF4444' : icon === '$' ? '#22C55E' : 'rgba(139,92,246,0.5)',
+                color: icon === '₿' ? '#F7931A' : icon === '♥' || icon === '♦' ? '#EF4444' : icon === '$' ? '#22C55E' : 'rgba(142,124,195,0.5)',
                 animation: `float 4s ease-in-out ${i * 0.3}s infinite`,
               }}
             >

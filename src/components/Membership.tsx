@@ -194,7 +194,7 @@ function GoldChip({ className }: { className?: string }) {
 }
 
 const cardSuits = ['♣', '♦', '♠'];
-const suitColors = ['rgba(255,255,255,0.06)', 'rgba(239,68,68,0.08)', 'rgba(139,92,246,0.08)'];
+const suitColors = ['rgba(255,255,255,0.06)', 'rgba(239,68,68,0.08)', 'rgba(142,124,195,0.08)'];
 const cornerNumbers = ['7', '10', 'A'];
 
 export default function Membership() {

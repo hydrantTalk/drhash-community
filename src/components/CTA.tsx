@@ -79,7 +79,7 @@ export default function CTA() {
       <div className="absolute bottom-[25%] left-[15%] text-5xl text-red-500/[0.04] select-none pointer-events-none animate-float" style={{ animationDelay: '-2s' }}>♥</div>
 
       {/* Floating chips */}
-      <FloatingChip className="absolute top-[15%] right-[8%]" color="#8B5CF6" delay={0} />
+      <FloatingChip className="absolute top-[15%] right-[8%]" color="#8E7CC3" delay={0} />
       <FloatingChip className="absolute bottom-[20%] left-[5%]" color="#F7931A" delay={-2} />
       <FloatingChip className="absolute top-[60%] right-[15%]" color="#EC4899" delay={-4} />
       <FloatingChip className="absolute bottom-[35%] right-[25%] hidden md:block" color="#22C55E" delay={-1} />
