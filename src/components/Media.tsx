@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useRef } from 'react';
+import Image from 'next/image';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useLang } from '@/context/LanguageContext';
@@ -16,30 +17,8 @@ function XIcon({ className }: { className?: string }) {
   );
 }
 
-/* Gradient avatar with initial letter */
-function GradientAvatar({ name, color }: { name: string; color: string }) {
-  const initial = name.charAt(0).toUpperCase();
-  return (
-    <div
-      className="w-24 h-24 md:w-28 md:h-28 rounded-full flex items-center justify-center text-4xl md:text-5xl font-black text-white/90 relative"
-      style={{
-        background: `linear-gradient(135deg, ${color}33, ${color}11)`,
-        border: `2px solid ${color}55`,
-        boxShadow: `0 0 40px ${color}22, inset 0 0 30px ${color}11`,
-      }}
-    >
-      {initial}
-      {/* Glow ring */}
-      <div
-        className="absolute inset-[-3px] rounded-full pointer-events-none"
-        style={{
-          background: `conic-gradient(from 0deg, transparent 60%, ${color}44 80%, transparent 100%)`,
-          animation: 'spin 6s linear infinite',
-        }}
-      />
-    </div>
-  );
-}
+/* Avatar image filenames mapped by index */
+const avatarFiles = ['drhash.png', 'peas.png', 'wesley.png'];
 
 /* Decorative marquee symbols */
 const marqueeSymbols = '♠ ♥ ♦ ♣ ₿ $ ♠ ♥ ♦ ♣ ₿ $ ♠ ♥ ♦ ♣ ₿ $';
@@ -47,6 +26,7 @@ const marqueeSymbols = '♠ ♥ ♦ ♣ ₿ $ ♠ ♥ ♦ ♣ ₿ $ ♠ ♥ ♦ 
 export default function Team() {
   const { m } = useLang();
   const sectionRef = useRef<HTMLDivElement>(null);
+  const basePath = process.env.NODE_ENV === 'production' ? '/drhash-community' : '';
 
   const members: { name: string; handle: string; url: string; color: string }[] = m.team?.members || [];
 
@@ -116,9 +96,35 @@ export default function Team() {
             className="team-card glow-card p-8 md:p-10 text-center group opacity-0 hover:-translate-y-2 transition-all duration-500"
             style={{ transformStyle: 'preserve-3d' }}
           >
-            {/* Avatar */}
+            {/* Avatar with real image */}
             <div className="flex justify-center mb-6">
-              <GradientAvatar name={member.name} color={member.color} />
+              <div className="relative w-24 h-24 md:w-28 md:h-28">
+                {/* Glow ring */}
+                <div
+                  className="absolute inset-[-4px] rounded-full pointer-events-none"
+                  style={{
+                    background: `conic-gradient(from 0deg, transparent 50%, ${member.color}66 70%, transparent 90%)`,
+                    animation: 'spin 6s linear infinite',
+                  }}
+                />
+                {/* Avatar ring border */}
+                <div
+                  className="absolute inset-0 rounded-full"
+                  style={{
+                    border: `2px solid ${member.color}55`,
+                    boxShadow: `0 0 30px ${member.color}22`,
+                  }}
+                />
+                {/* Avatar image */}
+                <Image
+                  src={`${basePath}/avatars/${avatarFiles[i]}`}
+                  alt={member.name}
+                  width={112}
+                  height={112}
+                  className="w-full h-full rounded-full object-cover relative z-[1]"
+                  unoptimized
+                />
+              </div>
             </div>
 
             {/* Name */}
