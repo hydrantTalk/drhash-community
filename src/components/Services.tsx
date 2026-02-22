@@ -238,24 +238,26 @@ export default function Services() {
     const section = sectionRef.current;
     if (!section) return;
 
-    const title = section.querySelector('.svc-title');
-    if (title) {
-      gsap.fromTo(title, { opacity: 0, y: 30 }, {
-        opacity: 1, y: 0, duration: 0.7,
-        scrollTrigger: { trigger: section, start: 'top 75%', toggleActions: 'play none none none' },
-      });
-    }
+    const ctx = gsap.context(() => {
+      const title = section.querySelector('.svc-title');
+      if (title) {
+        gsap.fromTo(title, { opacity: 0, y: 30 }, {
+          opacity: 1, y: 0, duration: 0.7,
+          scrollTrigger: { trigger: section, start: 'top 85%', toggleActions: 'play none none none' },
+        });
+      }
 
-    const cards = section.querySelectorAll('.svc-card');
-    cards.forEach((card, i) => {
-      gsap.fromTo(card, { opacity: 0, y: 50, scale: 0.95 }, {
-        opacity: 1, y: 0, scale: 1, duration: 0.7, delay: i * 0.12,
-        ease: 'power3.out',
-        scrollTrigger: { trigger: section, start: 'top 60%', toggleActions: 'play none none none' },
+      const cards = section.querySelectorAll('.svc-card');
+      cards.forEach((card, i) => {
+        gsap.fromTo(card, { opacity: 0, y: 50, scale: 0.95 }, {
+          opacity: 1, y: 0, scale: 1, duration: 0.7, delay: i * 0.12,
+          ease: 'power3.out',
+          scrollTrigger: { trigger: card, start: 'top 90%', toggleActions: 'play none none none' },
+        });
       });
-    });
+    }, section);
 
-    return () => { ScrollTrigger.getAll().forEach(t => t.kill()); };
+    return () => ctx.revert();
   }, []);
 
   const items: { icon: string; title: string; desc: string }[] = m.services?.items || [];

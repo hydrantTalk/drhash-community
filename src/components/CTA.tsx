@@ -40,15 +40,17 @@ export default function CTA() {
     const section = sectionRef.current;
     if (!section) return;
 
-    const els = section.querySelectorAll('.cta-anim');
-    els.forEach((el, i) => {
-      gsap.fromTo(el, { opacity: 0, y: 25 }, {
-        opacity: 1, y: 0, duration: 0.6, delay: i * 0.1,
-        scrollTrigger: { trigger: section, start: 'top 70%', toggleActions: 'play none none none' },
+    const ctx = gsap.context(() => {
+      const els = section.querySelectorAll('.cta-anim');
+      els.forEach((el, i) => {
+        gsap.fromTo(el, { opacity: 0, y: 25 }, {
+          opacity: 1, y: 0, duration: 0.6, delay: i * 0.1,
+          scrollTrigger: { trigger: el, start: 'top 95%', toggleActions: 'play none none none' },
+        });
       });
-    });
+    }, section);
 
-    return () => { ScrollTrigger.getAll().forEach(t => t.kill()); };
+    return () => ctx.revert();
   }, []);
 
   const onMouseMove = useCallback((e: React.MouseEvent) => {

@@ -34,30 +34,32 @@ export default function Team() {
     const section = sectionRef.current;
     if (!section) return;
 
-    // Title entrance
-    const title = section.querySelector('.team-title');
-    if (title) {
-      gsap.fromTo(title, { opacity: 0, y: 20 }, {
-        opacity: 1, y: 0, duration: 0.6,
-        scrollTrigger: { trigger: section, start: 'top 75%', toggleActions: 'play none none none' },
+    const ctx = gsap.context(() => {
+      // Title entrance
+      const title = section.querySelector('.team-title');
+      if (title) {
+        gsap.fromTo(title, { opacity: 0, y: 20 }, {
+          opacity: 1, y: 0, duration: 0.6,
+          scrollTrigger: { trigger: section, start: 'top 85%', toggleActions: 'play none none none' },
+        });
+      }
+
+      // Cards 3D flip entrance
+      const cards = section.querySelectorAll('.team-card');
+      cards.forEach((card, i) => {
+        gsap.fromTo(card,
+          { opacity: 0, rotateY: 60, scale: 0.85 },
+          {
+            opacity: 1, rotateY: 0, scale: 1,
+            duration: 0.9, delay: i * 0.2,
+            ease: 'power3.out',
+            scrollTrigger: { trigger: card, start: 'top 95%', toggleActions: 'play none none none' },
+          }
+        );
       });
-    }
+    }, section);
 
-    // Cards 3D flip entrance
-    const cards = section.querySelectorAll('.team-card');
-    cards.forEach((card, i) => {
-      gsap.fromTo(card,
-        { opacity: 0, rotateY: 60, scale: 0.85 },
-        {
-          opacity: 1, rotateY: 0, scale: 1,
-          duration: 0.9, delay: i * 0.2,
-          ease: 'power3.out',
-          scrollTrigger: { trigger: section, start: 'top 60%', toggleActions: 'play none none none' },
-        }
-      );
-    });
-
-    return () => { ScrollTrigger.getAll().forEach(t => t.kill()); };
+    return () => ctx.revert();
   }, []);
 
   return (

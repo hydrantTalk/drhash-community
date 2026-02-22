@@ -419,6 +419,22 @@ body {
   animation: gold-glow 3s ease-in-out infinite;
 }
 
+/* ===== MOBILE ANIMATION SAFETY NET ===== */
+/* Ensure elements become visible even if ScrollTrigger doesn't fire */
+@media (max-width: 640px) {
+  .svc-card, .team-card, .cta-anim, .stat-card,
+  .hero-badge, .hero-line1, .hero-line2, .hero-tagline,
+  .mem-title, .founder-name, .founder-role, .tag, .timeline-dot {
+    animation: fadeInSafety 0.8s ease forwards;
+    animation-delay: 0.5s;
+  }
+}
+
+@keyframes fadeInSafety {
+  to { opacity: 1; transform: none; }
+}
+
 /* ===== UTILITY ===== */
 .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
 .hide-scrollbar::-webkit-scrollbar { display: none; }
+

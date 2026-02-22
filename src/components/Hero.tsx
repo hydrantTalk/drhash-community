@@ -33,31 +33,33 @@ export default function Hero() {
     const content = contentRef.current;
     if (!section || !content) return;
 
-    const tl = gsap.timeline({ defaults: { ease: 'power3.out' } });
+    const ctx = gsap.context(() => {
+      const tl = gsap.timeline({ defaults: { ease: 'power3.out' } });
 
-    // Badge
-    tl.fromTo('.hero-badge', { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.5 });
-    // Title line 1
-    tl.fromTo('.hero-line1', { opacity: 0, x: -60 }, { opacity: 1, x: 0, duration: 0.8 }, '-=0.2');
-    // Title line 2
-    tl.fromTo('.hero-line2', { opacity: 0, x: 60 }, { opacity: 1, x: 0, duration: 0.8 }, '-=0.5');
-    // Icon strip
-    tl.fromTo('.hero-icons span', { opacity: 0, y: 15, scale: 0.5 }, { opacity: 1, y: 0, scale: 1, duration: 0.4, stagger: 0.05 }, '-=0.3');
-    // Tagline
-    tl.fromTo('.hero-tagline', { opacity: 0, y: 15 }, { opacity: 1, y: 0, duration: 0.6 }, '-=0.2');
-    // Cards decoration
-    tl.fromTo('.ace-left', { opacity: 0, x: -40, rotation: -20 }, { opacity: 1, x: 0, rotation: -12, duration: 0.8 }, '-=0.6');
-    tl.fromTo('.ace-right', { opacity: 0, x: 40, rotation: 20 }, { opacity: 1, x: 0, rotation: 12, duration: 0.8 }, '-=0.7');
+      // Badge
+      tl.fromTo('.hero-badge', { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.5 });
+      // Title line 1
+      tl.fromTo('.hero-line1', { opacity: 0, x: -60 }, { opacity: 1, x: 0, duration: 0.8 }, '-=0.2');
+      // Title line 2
+      tl.fromTo('.hero-line2', { opacity: 0, x: 60 }, { opacity: 1, x: 0, duration: 0.8 }, '-=0.5');
+      // Icon strip
+      tl.fromTo('.hero-icons span', { opacity: 0, y: 15, scale: 0.5 }, { opacity: 1, y: 0, scale: 1, duration: 0.4, stagger: 0.05 }, '-=0.3');
+      // Tagline
+      tl.fromTo('.hero-tagline', { opacity: 0, y: 15 }, { opacity: 1, y: 0, duration: 0.6 }, '-=0.2');
+      // Cards decoration
+      tl.fromTo('.ace-left', { opacity: 0, x: -40, rotation: -20 }, { opacity: 1, x: 0, rotation: -12, duration: 0.8 }, '-=0.6');
+      tl.fromTo('.ace-right', { opacity: 0, x: 40, rotation: 20 }, { opacity: 1, x: 0, rotation: 12, duration: 0.8 }, '-=0.7');
 
-    // Parallax on scroll
-    gsap.to(content, {
-      y: -80,
-      opacity: 0,
-      ease: 'none',
-      scrollTrigger: { trigger: section, start: 'top top', end: '80% top', scrub: 1 },
-    });
+      // Parallax on scroll
+      gsap.to(content, {
+        y: -80,
+        opacity: 0,
+        ease: 'none',
+        scrollTrigger: { trigger: section, start: 'top top', end: '80% top', scrub: 1 },
+      });
+    }, section);
 
-    return () => { ScrollTrigger.getAll().forEach(t => t.kill()); };
+    return () => ctx.revert();
   }, []);
 
   return (

@@ -206,27 +206,29 @@ export default function Membership() {
     const section = sectionRef.current;
     if (!section) return;
 
-    const title = section.querySelector('.mem-title');
-    if (title) {
-      gsap.fromTo(title, { opacity: 0, y: 20 }, {
-        opacity: 1, y: 0, duration: 0.6,
-        scrollTrigger: { trigger: section, start: 'top 75%', toggleActions: 'play none none none' },
+    const ctx = gsap.context(() => {
+      const title = section.querySelector('.mem-title');
+      if (title) {
+        gsap.fromTo(title, { opacity: 0, y: 20 }, {
+          opacity: 1, y: 0, duration: 0.6,
+          scrollTrigger: { trigger: section, start: 'top 85%', toggleActions: 'play none none none' },
+        });
+      }
+
+      cardsRef.current.forEach((card, i) => {
+        if (!card) return;
+        gsap.fromTo(card,
+          { y: 120, rotateX: 15, opacity: 0, scale: 0.9 },
+          {
+            y: 0, rotateX: 0, opacity: 1, scale: 1,
+            duration: 0.8, delay: i * 0.15, ease: 'power3.out',
+            scrollTrigger: { trigger: card, start: 'top 95%', toggleActions: 'play none none none' },
+          }
+        );
       });
-    }
+    }, section);
 
-    cardsRef.current.forEach((card, i) => {
-      if (!card) return;
-      gsap.fromTo(card,
-        { y: 120, rotateX: 15, opacity: 0, scale: 0.9 },
-        {
-          y: 0, rotateX: 0, opacity: 1, scale: 1,
-          duration: 0.8, delay: i * 0.15, ease: 'power3.out',
-          scrollTrigger: { trigger: section, start: 'top 60%', toggleActions: 'play none none none' },
-        }
-      );
-    });
-
-    return () => { ScrollTrigger.getAll().forEach(t => t.kill()); };
+    return () => ctx.revert();
   }, []);
 
   const tiers: { name: string; suit?: string; price: string; features: string[] }[] = m.membership?.tiers || [];

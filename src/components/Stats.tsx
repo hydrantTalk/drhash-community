@@ -123,7 +123,7 @@ export default function Stats() {
       });
     });
 
-    return () => { mm.revert(); ScrollTrigger.getAll().forEach(t => t.kill()); };
+    return () => { mm.revert(); };
   }, []);
 
   const items: { value: string; label: string }[] = m.stats?.items || [];

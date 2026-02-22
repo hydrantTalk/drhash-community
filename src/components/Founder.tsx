@@ -282,77 +282,79 @@ export default function Founder() {
     const section = sectionRef.current;
     if (!section) return;
 
-    // Big W fade in
-    const bigW = section.querySelector('.big-w');
-    if (bigW) {
-      gsap.fromTo(bigW, { x: -80, opacity: 0 }, {
-        x: 0, opacity: 0.03, duration: 1,
-        scrollTrigger: { trigger: section, start: 'top 70%', end: 'top 30%', scrub: 1 },
-      });
-    }
+    const ctx = gsap.context(() => {
+      // Big W fade in
+      const bigW = section.querySelector('.big-w');
+      if (bigW) {
+        gsap.fromTo(bigW, { x: -80, opacity: 0 }, {
+          x: 0, opacity: 0.03, duration: 1,
+          scrollTrigger: { trigger: section, start: 'top 80%', end: 'top 30%', scrub: 1 },
+        });
+      }
 
-    // Royal flush fade in
-    const royalFlush = section.querySelector('.royal-flush');
-    if (royalFlush) {
-      gsap.fromTo(royalFlush, { opacity: 0, y: 20 }, {
-        opacity: 1, y: 0, duration: 1,
-        scrollTrigger: { trigger: section, start: 'top 60%', end: 'top 30%', scrub: 1 },
-      });
-    }
+      // Royal flush fade in
+      const royalFlush = section.querySelector('.royal-flush');
+      if (royalFlush) {
+        gsap.fromTo(royalFlush, { opacity: 0, y: 20 }, {
+          opacity: 1, y: 0, duration: 1,
+          scrollTrigger: { trigger: section, start: 'top 70%', end: 'top 30%', scrub: 1 },
+        });
+      }
 
-    // Name + role slide in
-    const nameEl = section.querySelector('.founder-name');
-    const roleEl = section.querySelector('.founder-role');
-    if (nameEl) {
-      gsap.fromTo(nameEl, { opacity: 0, x: -30 }, {
-        opacity: 1, x: 0, duration: 0.7,
-        scrollTrigger: { trigger: section, start: 'top 65%', toggleActions: 'play none none none' },
-      });
-    }
-    if (roleEl) {
-      gsap.fromTo(roleEl, { opacity: 0, x: -30 }, {
-        opacity: 1, x: 0, duration: 0.7, delay: 0.15,
-        scrollTrigger: { trigger: section, start: 'top 65%', toggleActions: 'play none none none' },
-      });
-    }
+      // Name + role slide in
+      const nameEl = section.querySelector('.founder-name');
+      const roleEl = section.querySelector('.founder-role');
+      if (nameEl) {
+        gsap.fromTo(nameEl, { opacity: 0, x: -30 }, {
+          opacity: 1, x: 0, duration: 0.7,
+          scrollTrigger: { trigger: section, start: 'top 85%', toggleActions: 'play none none none' },
+        });
+      }
+      if (roleEl) {
+        gsap.fromTo(roleEl, { opacity: 0, x: -30 }, {
+          opacity: 1, x: 0, duration: 0.7, delay: 0.15,
+          scrollTrigger: { trigger: section, start: 'top 85%', toggleActions: 'play none none none' },
+        });
+      }
 
-    // Tags fly in
-    const tagEls = section.querySelectorAll('.tag');
-    tagEls.forEach((tag, i) => {
-      gsap.fromTo(tag, { y: 20, opacity: 0 }, {
-        y: 0, opacity: 1, duration: 0.5, delay: 0.4 + i * 0.1,
-        scrollTrigger: { trigger: section, start: 'top 55%', toggleActions: 'play none none none' },
+      // Tags fly in
+      const tagEls = section.querySelectorAll('.tag');
+      tagEls.forEach((tag, i) => {
+        gsap.fromTo(tag, { y: 20, opacity: 0 }, {
+          y: 0, opacity: 1, duration: 0.5, delay: 0.4 + i * 0.1,
+          scrollTrigger: { trigger: section, start: 'top 75%', toggleActions: 'play none none none' },
+        });
       });
-    });
 
-    // Timeline dots
-    const dots = section.querySelectorAll('.timeline-dot');
-    dots.forEach((dot, i) => {
-      gsap.fromTo(dot, { scale: 0, opacity: 0 }, {
-        scale: 1, opacity: 1, duration: 0.4, delay: 0.6 + i * 0.15,
-        ease: 'back.out(2)',
-        scrollTrigger: { trigger: section, start: 'top 50%', toggleActions: 'play none none none' },
+      // Timeline dots
+      const dots = section.querySelectorAll('.timeline-dot');
+      dots.forEach((dot, i) => {
+        gsap.fromTo(dot, { scale: 0, opacity: 0 }, {
+          scale: 1, opacity: 1, duration: 0.4, delay: 0.6 + i * 0.15,
+          ease: 'back.out(2)',
+          scrollTrigger: { trigger: section, start: 'top 70%', toggleActions: 'play none none none' },
+        });
       });
-    });
 
-    // Typewriter
-    ScrollTrigger.create({
-      trigger: section,
-      start: 'top 55%',
-      onEnter: () => {
-        if (hasTyped.current) return;
-        hasTyped.current = true;
-        setShowCursor(true);
-        let i = 0;
-        const interval = setInterval(() => {
-          i++;
-          setTyped(fullText.slice(0, i));
-          if (i >= fullText.length) clearInterval(interval);
-        }, 35);
-      },
-    });
+      // Typewriter
+      ScrollTrigger.create({
+        trigger: section,
+        start: 'top 75%',
+        onEnter: () => {
+          if (hasTyped.current) return;
+          hasTyped.current = true;
+          setShowCursor(true);
+          let i = 0;
+          const interval = setInterval(() => {
+            i++;
+            setTyped(fullText.slice(0, i));
+            if (i >= fullText.length) clearInterval(interval);
+          }, 35);
+        },
+      });
+    }, section);
 
-    return () => { ScrollTrigger.getAll().forEach(t => t.kill()); };
+    return () => ctx.revert();
   }, [fullText]);
 
   return (
