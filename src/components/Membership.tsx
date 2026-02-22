@@ -16,29 +16,24 @@ export default function Membership() {
     const section = sectionRef.current;
     if (!section) return;
 
+    // Title
+    const title = section.querySelector('.mem-title');
+    if (title) {
+      gsap.fromTo(title, { opacity: 0, y: 20 }, {
+        opacity: 1, y: 0, duration: 0.6,
+        scrollTrigger: { trigger: section, start: 'top 75%', toggleActions: 'play none none none' },
+      });
+    }
+
+    // Cards fly in with 3D
     cardsRef.current.forEach((card, i) => {
       if (!card) return;
-      gsap.fromTo(
-        card,
+      gsap.fromTo(card,
+        { y: 120, rotateX: 15, opacity: 0, scale: 0.9 },
         {
-          y: 200,
-          rotateX: 25,
-          opacity: 0,
-          scale: 0.85,
-        },
-        {
-          y: 0,
-          rotateX: 0,
-          opacity: 1,
-          scale: 1,
-          duration: 1,
-          ease: 'power3.out',
-          scrollTrigger: {
-            trigger: section,
-            start: `${15 + i * 12}% bottom`,
-            end: `${40 + i * 12}% bottom`,
-            scrub: 1,
-          },
+          y: 0, rotateX: 0, opacity: 1, scale: 1,
+          duration: 0.8, delay: i * 0.15, ease: 'power3.out',
+          scrollTrigger: { trigger: section, start: 'top 60%', toggleActions: 'play none none none' },
         }
       );
     });
@@ -49,42 +44,60 @@ export default function Membership() {
   const tiers: { name: string; price: string; features: string[] }[] = m.membership?.tiers || [];
 
   return (
-    <section ref={sectionRef} className="min-h-screen flex items-center justify-center py-32 px-4 perspective-container">
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 max-w-5xl w-full">
-        {tiers.map((tier, i) => {
-          const isVip = i === tiers.length - 1;
-          return (
-            <div
-              key={i}
-              ref={(el: HTMLElement | null) => { cardsRef.current[i] = el; }}
-              className={`${isVip ? 'glow-card-vip' : 'glow-card'} p-8 md:p-10 flex flex-col will-change-transform`}
-              style={{ transformStyle: 'preserve-3d' }}
-            >
-              {/* Name */}
-              <h3 className={`text-xl font-bold mb-1 ${isVip ? 'text-grad' : 'text-white'}`}>
-                {tier.name}
-              </h3>
+    <section ref={sectionRef} className="py-24 md:py-32 px-6 sm:px-8 perspective-container">
+      <div className="max-w-5xl mx-auto">
+        {/* Title */}
+        <div className="mem-title text-center mb-14 md:mb-16">
+          <h2 className="text-3xl md:text-4xl font-bold text-white/90 mb-3">{m.membership?.title}</h2>
+          <div className="w-12 h-0.5 bg-purple-500/40 mx-auto" />
+        </div>
 
-              {/* Price */}
-              <div className={`text-4xl md:text-5xl font-black mb-6 ${isVip ? 'text-grad' : 'text-white'}`}>
-                {tier.price}
+        {/* Cards */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-6">
+          {tiers.map((tier, i) => {
+            const isVip = i === tiers.length - 1;
+            return (
+              <div
+                key={i}
+                ref={(el: HTMLElement | null) => { cardsRef.current[i] = el; }}
+                className={`${isVip ? 'glow-card-vip' : 'glow-card'} p-6 md:p-8 flex flex-col will-change-transform opacity-0`}
+                style={{ transformStyle: 'preserve-3d' }}
+              >
+                {/* VIP badge */}
+                {isVip && (
+                  <div className="self-start px-3 py-0.5 rounded-full bg-purple-500/20 border border-purple-500/30 text-[10px] tracking-widest uppercase text-purple-300 font-bold mb-3">
+                    Popular
+                  </div>
+                )}
+
+                {/* Name */}
+                <h3 className={`text-lg font-bold mb-1 ${isVip ? 'text-grad' : 'text-white/90'}`}>
+                  {tier.name}
+                </h3>
+
+                {/* Price */}
+                <div className={`text-3xl md:text-4xl font-black mb-5 ${isVip ? 'text-grad' : 'text-white'}`}>
+                  {tier.price}
+                </div>
+
+                {/* Divider */}
+                <div className={`h-px mb-5 ${isVip ? 'bg-purple-500/25' : 'bg-white/8'}`} />
+
+                {/* Features */}
+                <ul className="space-y-2.5 flex-1">
+                  {tier.features.map((f, fi) => (
+                    <li key={fi} className="flex items-start gap-2.5 text-sm text-white/40 leading-relaxed">
+                      <svg className={`w-4 h-4 mt-0.5 flex-shrink-0 ${isVip ? 'text-purple-400' : 'text-white/15'}`} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+                      </svg>
+                      {f}
+                    </li>
+                  ))}
+                </ul>
               </div>
-
-              {/* Divider */}
-              <div className={`h-px mb-6 ${isVip ? 'bg-purple-500/30' : 'bg-white/10'}`} />
-
-              {/* Features */}
-              <ul className="space-y-3 flex-1">
-                {tier.features.map((f, fi) => (
-                  <li key={fi} className="flex items-center gap-3 text-sm text-white/50">
-                    <span className={`w-1.5 h-1.5 rounded-full flex-shrink-0 ${isVip ? 'bg-purple-500' : 'bg-white/20'}`} />
-                    {f}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          );
-        })}
+            );
+          })}
+        </div>
       </div>
     </section>
   );

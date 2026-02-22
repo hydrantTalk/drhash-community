@@ -1,8 +1,11 @@
 {
   "hero": {
-    "sub": "Est. 2021 · 22,000+ Traders · Web3"
+    "badge": "Web3 Crypto Community",
+    "sub": "Est. 2021 · 22,000+ Traders · Web3",
+    "desc": "Research-driven, service-first. Deep partnerships with Binance, OKX & Bitget — delivering cutting-edge market insights for traders."
   },
   "stats": {
+    "title": "Community Data",
     "items": [
       { "value": "6,500+", "label": "Paid Users" },
       { "value": "780K+", "label": "KOL Reach" },
@@ -14,43 +17,95 @@
       { "value": "18+", "label": "Events" }
     ]
   },
-  "services": [
-    { "icon": "◎", "title": "Alpha Hunter" },
-    { "icon": "△", "title": "Trend Trading" },
-    { "icon": "◇", "title": "Deep Research" },
-    { "icon": "□", "title": "Community" }
-  ],
+  "services": {
+    "title": "What We Do",
+    "items": [
+      {
+        "icon": "◎",
+        "title": "Alpha Hunter",
+        "desc": "Funding events · Track trends · Data mining — finding premium early-stage projects."
+      },
+      {
+        "icon": "△",
+        "title": "Trend Trading",
+        "desc": "Technical indicators · Market trends · Live strategies for community traders."
+      },
+      {
+        "icon": "◇",
+        "title": "Deep Research",
+        "desc": "Project analysis · Operational breakdowns · Reports bridging users and projects."
+      },
+      {
+        "icon": "□",
+        "title": "Community Ops",
+        "desc": "Brand exposure · Content marketing · Event planning — full-stack project support."
+      }
+    ]
+  },
   "membership": {
+    "title": "Join Us",
     "tiers": [
       {
         "name": "Basic",
         "price": "FREE",
-        "features": ["Social Feed", "Market Brief", "Community"]
+        "features": [
+          "Social media content access",
+          "Follow @CryptoApprenti1",
+          "Follow @DrHashClub",
+          "Market brief updates"
+        ]
       },
       {
         "name": "Core",
         "price": "FREE",
-        "features": ["Fee Rebates", "Trend Analysis", "Live Streams"]
+        "features": [
+          "Register exchanges via Dr.Hash referral",
+          "CEX fee rebates on all exchanges",
+          "Spot / Futures / Altcoin trend analysis",
+          "Partial VIP group insights",
+          "1-2 live streams per month",
+          "Irregular lottery benefits"
+        ]
       },
       {
         "name": "VIP",
         "price": "PAID",
-        "features": ["Live Positions", "DM Wesley", "Max Rebates"]
+        "features": [
+          "Real-time position sharing",
+          "Highest CEX fee rebate ratios",
+          "Spot / Futures / Altcoin trend analysis",
+          "Private consultation with Wesley",
+          "Top poker player & OKX Top 10 trader",
+          "Live streams + Offline meetups"
+        ]
       }
     ]
   },
   "founder": {
     "name": "Wesley",
     "role": "Founder & CIO",
-    "tags": ["Poker Champion", "$300M Fund", "OKX Top 10"]
+    "desc": "Renowned poker player and crypto investor. CIO of an LA family office, independently managing a $300M fund.",
+    "tags": ["Poker Champion", "$300M Fund", "OKX Top 10"],
+    "social": "@CryptoApprentil"
   },
-  "media": ["Discord", "Telegram", "Bilibili", "YouTube", "X"],
+  "media": {
+    "title": "Follow Us",
+    "platforms": [
+      { "name": "Discord", "handle": "Dr.Hash Club", "url": "https://discord.gg/drhash" },
+      { "name": "Telegram", "handle": "Dr.Hash Research", "url": "https://t.me/drhash" },
+      { "name": "Bilibili", "handle": "DrHashResearch", "url": "https://bilibili.com" },
+      { "name": "YouTube", "handle": "Wesley Poker", "url": "https://youtube.com" },
+      { "name": "X", "handle": "@DrHashClub", "url": "https://x.com/DrhashClub" }
+    ]
+  },
   "cta": {
-    "title": "JOIN US",
+    "title": "Start Your Crypto Journey",
+    "desc": "DM @DrhashClub on X for links",
     "btn": "Join Now",
-    "footer": "© 2024 Dr.Hash"
+    "email": "peas@blockinfinity.fund"
   },
   "nav": {
     "lang": "中文"
-  }
+  },
+  "footer": "© 2024 Dr.Hash Community"
 }

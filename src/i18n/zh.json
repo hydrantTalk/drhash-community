@@ -1,56 +1,111 @@
 {
   "hero": {
-    "sub": "Est. 2021 · 22,000+ Traders · Web3"
+    "badge": "Web3 加密社区",
+    "sub": "Est. 2021 · 22,000+ Traders · Web3",
+    "desc": "投研驱动，服务至上。与 Binance、OKX、Bitget 深度合作，为交易者提供最前沿的市场洞察。"
   },
   "stats": {
+    "title": "社区数据",
     "items": [
       { "value": "6,500+", "label": "付费用户" },
-      { "value": "780K+", "label": "KOL粉丝" },
+      { "value": "780K+", "label": "KOL 粉丝" },
       { "value": "40+", "label": "合作社区" },
       { "value": "70+", "label": "服务客户" },
-      { "value": "650+", "label": "研报" },
-      { "value": "50+", "label": "AMA" },
+      { "value": "650+", "label": "输出研报" },
+      { "value": "50+", "label": "AMA / Space" },
       { "value": "48+", "label": "合作媒体" },
       { "value": "18+", "label": "线下活动" }
     ]
   },
-  "services": [
-    { "icon": "◎", "title": "Alpha 猎手" },
-    { "icon": "△", "title": "趋势交易" },
-    { "icon": "◇", "title": "深度投研" },
-    { "icon": "□", "title": "社区服务" }
-  ],
+  "services": {
+    "title": "我们做什么",
+    "items": [
+      {
+        "icon": "◎",
+        "title": "Alpha 猎手",
+        "desc": "融资事件 · 赛道趋势 · 数据挖掘，找出最优质的早期项目。"
+      },
+      {
+        "icon": "△",
+        "title": "趋势交易",
+        "desc": "技术指标 · 市场趋势 · 实时策略，为社区用户提供交易信号。"
+      },
+      {
+        "icon": "◇",
+        "title": "深度投研",
+        "desc": "项目调研 · 操作拆解 · 研报产出，搭建用户与项目间的桥梁。"
+      },
+      {
+        "icon": "□",
+        "title": "社区服务",
+        "desc": "品牌曝光 · 内容营销 · 活动策划，全方位为项目赋能。"
+      }
+    ]
+  },
   "membership": {
+    "title": "加入社区",
     "tiers": [
       {
         "name": "基础",
         "price": "FREE",
-        "features": ["社媒内容", "行情速递", "社区入口"]
+        "features": [
+          "查看社交媒体发布内容",
+          "关注 @CryptoApprenti1",
+          "关注 @DrHashClub",
+          "基础行情速递"
+        ]
       },
       {
         "name": "核心群",
         "price": "FREE",
-        "features": ["手续费返现", "趋势分析", "直播分享"]
+        "features": [
+          "Dr.Hash 邀请码注册交易所",
+          "所有 Cex 手续费返现",
+          "现货 / 合约 / 山寨趋势分析",
+          "部分 VIP 逻辑解读",
+          "每月 1-2 次直播",
+          "不定期抽奖福利"
+        ]
       },
       {
         "name": "VIP",
         "price": "付费",
-        "features": ["实时仓位", "私聊 Wesley", "最高返现"]
+        "features": [
+          "实时分享所有仓位操作",
+          "Cex 手续费最高返现比例",
+          "现货 / 合约 / 山寨趋势分析",
+          "私聊咨询 Wesley",
+          "顶尖牌手 & OKX 牛人榜 Top 10",
+          "每月直播 + 线下聚会"
+        ]
       }
     ]
   },
   "founder": {
     "name": "Wesley",
     "role": "Founder & CIO",
-    "tags": ["扑克冠军", "$300M 基金", "OKX Top 10"]
+    "desc": "知名扑克牌手与加密货币投资者，洛杉矶家族办公室首席投资官，独立管理 $300M 基金。",
+    "tags": ["扑克冠军", "$300M 基金", "OKX Top 10"],
+    "social": "@CryptoApprentil"
   },
-  "media": ["Discord", "Telegram", "Bilibili", "YouTube", "X"],
+  "media": {
+    "title": "关注我们",
+    "platforms": [
+      { "name": "Discord", "handle": "Dr.Hash Club", "url": "https://discord.gg/drhash" },
+      { "name": "Telegram", "handle": "Dr.Hash Research", "url": "https://t.me/drhash" },
+      { "name": "Bilibili", "handle": "哈希社区", "url": "https://bilibili.com" },
+      { "name": "YouTube", "handle": "Wesley Poker", "url": "https://youtube.com" },
+      { "name": "X", "handle": "@DrHashClub", "url": "https://x.com/DrhashClub" }
+    ]
+  },
   "cta": {
-    "title": "JOIN US",
+    "title": "开始你的加密之旅",
+    "desc": "X 私信 @DrhashClub 获取链接",
     "btn": "立即加入",
-    "footer": "© 2024 Dr.Hash"
+    "email": "peas@blockinfinity.fund"
   },
   "nav": {
     "lang": "EN"
-  }
+  },
+  "footer": "© 2024 Dr.Hash Community"
 }
