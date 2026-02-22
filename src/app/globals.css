@@ -55,14 +55,14 @@ body {
 .glitch::before {
   animation: glitch-1 2.5s infinite linear alternate-reverse;
   clip-path: polygon(0 0, 100% 0, 100% 35%, 0 35%);
-  color: #0ff;
+  color: #B8A8D8;
   opacity: 0.8;
 }
 
 .glitch::after {
   animation: glitch-2 2.5s infinite linear alternate-reverse;
   clip-path: polygon(0 65%, 100% 65%, 100% 100%, 0 100%);
-  color: #f0f;
+  color: #7A68B0;
   opacity: 0.8;
 }
 
